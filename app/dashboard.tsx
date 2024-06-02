@@ -9,34 +9,36 @@ const Dashboard = () => {
       <View style={styles.header}>
         <Text style={styles.headerText}>Dashboard</Text>
       </View>
+
       <View style={styles.profileContainer}>
-        <Image source={{ uri: 'https://via.placeholder.com/100' }} style={styles.profileImage} />
+        <Image source={require('../components/images/profile.png')} style={styles.profileImage} />
         <Text style={styles.greeting}>Good Morning</Text>
-        <Text style={styles.username}>Kasun</Text>
+        <Text style={styles.username}>Hansadee</Text>
       </View>
+      
       <View style={styles.menuContainer}>
         <TouchableOpacity style={styles.menuItem}>
-          <Icon name="user-plus" size={30} color="#4CAF50" />
+          <Icon name="user-plus" size={30} color="#5cb075" style={styles.icons} />
           <Text style={styles.menuText}>Create User</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.menuItem}>
-          <Icon name="line-chart" size={30} color="#4CAF50" />
+          <Icon name="line-chart" size={30} color="#5cb075" style={styles.icons} />
           <Text style={styles.menuText}>Reports</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.menuItem}>
-          <Icon name="credit-card" size={30} color="#4CAF50" />
+          <Icon name="credit-card" size={30} color="#5cb075" style={styles.icons} />
           <Text style={styles.menuText}>Make Payments</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.menuItem}>
-          <Icon name="cogs" size={30} color="#4CAF50" />
+          <Icon name="cogs" size={30} color="#5cb075" style={styles.icons} />
           <Text style={styles.menuText}>Settings</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.menuItem}>
-          <Icon name="users" size={30} color="#4CAF50" />
+          <Icon name="users" size={30} color="#5cb075" style={styles.icons} />
           <Text style={styles.menuText}>Clients</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.menuItem}>
-          <Icon name="user" size={30} color="#4CAF50" />
+          <Icon name="user" size={30} color="#5cb075" style={styles.icons} />
           <Text style={styles.menuText}>Profile</Text>
         </TouchableOpacity>
       </View>
@@ -52,32 +54,35 @@ const styles = StyleSheet.create({
   },
   header: {
     width: '100%',
-    backgroundColor: '#4CAF50',
-    padding: 20,
+    backgroundColor: '#5cb075',
+    padding: '20%',
     alignItems: 'center',
   },
   headerText: {
     color: '#fff',
-    fontSize: 24,
+    fontSize: 34,
     fontWeight: 'bold',
   },
   profileContainer: {
     alignItems: 'center',
-    marginVertical: 20,
+    marginVertical: -50,
+    marginBottom:20,
   },
   profileImage: {
-    width: 100,
-    height: 100,
-    borderRadius: 50,
+    width: 150,
+    height: 150,
+    borderRadius: 75,
     marginBottom: 10,
+    borderColor: '#3a7f3f', 
+    borderWidth: 5,     
   },
   greeting: {
-    fontSize: 20,
+    fontSize: 34,
     fontWeight: 'bold',
   },
   username: {
-    fontSize: 18,
-    color: '#555',
+    fontSize: 24,
+    fontWeight: 'bold',
   },
   menuContainer: {
     flexDirection: 'row',
@@ -86,8 +91,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
   },
   menuItem: {
-    width: '45%',
-    backgroundColor: '#fff',
+    width: '49%',
+    backgroundColor: '#f6f6f6',
     padding: 20,
     marginVertical: 10,
     alignItems: 'center',
@@ -97,12 +102,17 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.1,
     shadowRadius: 2,
     elevation: 2,
+    flexDirection: 'row',   
   },
   menuText: {
     marginTop: 10,
     fontSize: 16,
     color: '#333',
   },
+
+  icons:{
+    marginRight: 15
+  }
 });
 
 export default Dashboard;
