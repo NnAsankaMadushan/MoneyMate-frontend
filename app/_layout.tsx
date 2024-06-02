@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
     zIndex:50,
     height:90,
     padding:10,
-    borderTopColor: '#c9c9c9', 
+    borderColor: '#c9c9c9', 
     // borderColor:'#fff',
     borderWidth: 1, 
   },
