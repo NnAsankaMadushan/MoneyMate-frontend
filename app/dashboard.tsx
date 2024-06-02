@@ -13,7 +13,7 @@ const Dashboard = () => {
       <View style={styles.profileContainer}>
         <Image source={require('../components/images/profile.png')} style={styles.profileImage} />
         <Text style={styles.greeting}>Good Morning</Text>
-        <Text style={styles.username}>Hansadee</Text>
+        <Text style={styles.username}>Santhusha</Text>
       </View>
       
       <View style={styles.menuContainer}>
@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
   },
   username: {
     fontSize: 24,
-    fontWeight: 'bold',
+    fontWeight: '500',
   },
   menuContainer: {
     flexDirection: 'row',

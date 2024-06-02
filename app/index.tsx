@@ -4,7 +4,7 @@ import {Link} from 'expo-router'
 
 const Index = () => {
   return (
-    <Link href={'/dashboard'}></Link>
+    <Link href={'/'}></Link>
   )
 }
 
