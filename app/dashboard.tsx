@@ -1,4 +1,3 @@
-// src/screens/Dashboard.js
 import React from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -13,7 +12,7 @@ const Dashboard = () => {
       <View style={styles.profileContainer}>
         <Image source={require('../components/images/profile.png')} style={styles.profileImage} />
         <Text style={styles.greeting}>Good Morning</Text>
-        <Text style={styles.username}>Santhusha</Text>
+        <Text style={styles.username}>Kasuni</Text>
       </View>
       
       <View style={styles.menuContainer}>
@@ -75,7 +74,8 @@ const styles = StyleSheet.create({
     borderRadius: 90,
     marginBottom: 10,
     borderColor: '#3a7f3f', 
-    borderWidth: 5,     
+    borderWidth: 5,
+    backgroundColor:'#fff'     
   },
   greeting: {
     fontSize: 34,
