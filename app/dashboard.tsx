@@ -55,7 +55,8 @@ const styles = StyleSheet.create({
   header: {
     width: '100%',
     backgroundColor: '#5cb075',
-    padding: '20%',
+    paddingBottom: '30%',
+    paddingTop: '10%',
     alignItems: 'center',
   },
   headerText: {
@@ -65,13 +66,13 @@ const styles = StyleSheet.create({
   },
   profileContainer: {
     alignItems: 'center',
-    marginVertical: -50,
+    marginVertical: -90,
     marginBottom:20,
   },
   profileImage: {
-    width: 150,
-    height: 150,
-    borderRadius: 75,
+    width: 180,
+    height: 180,
+    borderRadius: 90,
     marginBottom: 10,
     borderColor: '#3a7f3f', 
     borderWidth: 5,     
@@ -107,7 +108,7 @@ const styles = StyleSheet.create({
   menuText: {
     marginTop: 10,
     fontSize: 16,
-    color: '#333',
+    color: '#93c4a4',
   },
 
   icons:{
