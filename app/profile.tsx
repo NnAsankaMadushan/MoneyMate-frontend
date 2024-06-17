@@ -3,6 +3,8 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image, FlatList } from 'react-native';
 import {useWindowDimensions } from 'react-native';
+import { TabView, SceneMap, TabBar } from 'react-native-tab-view';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 const Profile = () => {
   const loanHistory = [
@@ -23,22 +25,22 @@ const Profile = () => {
           </View>
         </View>
       </View>
-      {/* <View style={styles.tabs}>
+      <View style={styles.tabs}>
         <Text style={styles.activeTab}>Loan History</Text>
         <Text style={styles.inactiveTab}>Profile</Text>
-      </View> */}
-
-
-
-
+      </View>
 
       <FlatList
         data={loanHistory}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
+            
           <View style={styles.loanItem}>
             <View style={styles.loanHeader}>
-              <Text style={styles.loanTitle}>{item.title}</Text>
+            <View style={styles.headerBell}>
+                <Icon name="bell" size={20} color="#5cb075" />
+                <Text style={styles.loanTitle}>{item.title}</Text>
+            </View>
               <Text style={styles.loanTime}>{item.time}</Text>
             </View>
             <Text style={styles.loanDescription}>{item.description}</Text>
@@ -73,25 +75,29 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     borderBottomWidth: 1,
     borderColor: '#CCCCCC',
-    borderRadius:40,
-    // width:170
+    width:180,
+    backgroundColor:'#f6f6f6',
+    borderRadius:40
   },
   activeTab: {
-    padding: 10,
+    padding: 20,
     color: '#4CAF50',
     borderBottomWidth: 2,
     borderColor: '#4CAF50',
-    backgroundColor:'gray',
+    backgroundColor:'#fff',
     borderRadius:40
   },
   inactiveTab: {
     padding: 10,
     color: '#AAAAAA',
+    borderColor: '#4CAF50',
+    borderRadius:40
   },
   loanItem: {
     padding: 15,
     borderBottomWidth: 1,
     borderColor: '#CCCCCC',
+    // flexDirection:'row'
   },
   loanHeader: {
     flexDirection: 'row',
@@ -100,10 +106,12 @@ const styles = StyleSheet.create({
   loanTitle: {
     fontSize: 18,
     fontWeight: 'bold',
+    marginLeft:5
   },
   loanTime: {
     fontSize: 14,
     color: '#AAAAAA',
+    justifyContent: 'flex-end',
   },
   loanDescription: {
     marginTop: 5,
@@ -131,6 +139,10 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
     marginBottom:15,
   },
+  headerBell:{
+    flexDirection:'row',
+
+  }
 });
 
 export default Profile;
