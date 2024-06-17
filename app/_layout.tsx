@@ -44,7 +44,7 @@ const RootLayout = () => {
       
           
             <TouchableOpacity style={styles.navItem}>
-            <Link href={'/dashboard'}>
+            <Link href={'/profile'}>
                 <Icon name="user" size={30} color="#5cb075" style={styles.icons} />
             </Link>
                 <Text style={styles.naviText}>Profile</Text>
