@@ -14,10 +14,12 @@ const Profile = () => {
     <View style={styles.container}>
       <View style={styles.header}>
         <View style={styles.profileContainer}>
-            <Image source={require('../components/images/profile.png')} style={styles.profileImage} />
+          <Image source={require('../components/images/profile.png')} style={styles.profileImage} />
+          <View style={styles.infoText}>
+            <Text style={styles.userName}>Kasuni Rumesha</Text>
+            <Text style={styles.userId}>USR24001</Text>
+          </View>
         </View>
-        <Text style={styles.userName}>Kasuni Rumesha</Text>
-        <Text style={styles.userId}>USR24001</Text>
       </View>
       <View style={styles.tabs}>
         <Text style={styles.activeTab}>Loan History</Text>
@@ -48,15 +50,8 @@ const styles = StyleSheet.create({
   header: {
     backgroundColor: '#4CAF50',
     padding: 20,
-    alignItems: 'center',
-  },
-  profileImage: {
-    width: 80,
-    height: 80,
-    borderRadius: 40,
   },
   userName: {
-    marginTop: 10,
     fontSize: 24,
     color: '#FFFFFF',
   },
@@ -103,18 +98,17 @@ const styles = StyleSheet.create({
     color: '#555555',
   },
   profileContainer: {
+    flexDirection: 'row',
     alignItems: 'center',
-    marginVertical: 0,
-    marginBottom:0,
   },
   profileImage: {
-    width: 180,
-    height: 180,
-    borderRadius: 90,
-    marginBottom: 10,
-    borderColor: '#3a7f3f', 
-    borderWidth: 5,
-    backgroundColor:'#fff'     
+    width: 80,
+    height: 80,
+    borderRadius: 40,
+    marginRight: 20,
+  },
+  infoText: {
+    flexDirection: 'column',
   },
 });
 
