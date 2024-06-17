@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { View, Text, StyleSheet, Image, FlatList } from 'react-native';
+import {useWindowDimensions } from 'react-native';
 
 const Profile = () => {
   const loanHistory = [
@@ -13,6 +14,7 @@ const Profile = () => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
+      <Text style={styles.headerText}>Back</Text>
         <View style={styles.profileContainer}>
           <Image source={require('../components/images/profile.png')} style={styles.profileImage} />
           <View style={styles.infoText}>
@@ -21,10 +23,15 @@ const Profile = () => {
           </View>
         </View>
       </View>
-      <View style={styles.tabs}>
+      {/* <View style={styles.tabs}>
         <Text style={styles.activeTab}>Loan History</Text>
         <Text style={styles.inactiveTab}>Profile</Text>
-      </View>
+      </View> */}
+
+
+
+
+
       <FlatList
         data={loanHistory}
         keyExtractor={(item) => item.id}
@@ -54,22 +61,28 @@ const styles = StyleSheet.create({
   userName: {
     fontSize: 24,
     color: '#FFFFFF',
+    fontWeight:600,
   },
   userId: {
     fontSize: 16,
     color: '#FFFFFF',
   },
   tabs: {
+    alignItems:'center',
     flexDirection: 'row',
     justifyContent: 'center',
     borderBottomWidth: 1,
     borderColor: '#CCCCCC',
+    borderRadius:40,
+    // width:170
   },
   activeTab: {
     padding: 10,
     color: '#4CAF50',
     borderBottomWidth: 2,
     borderColor: '#4CAF50',
+    backgroundColor:'gray',
+    borderRadius:40
   },
   inactiveTab: {
     padding: 10,
@@ -106,9 +119,17 @@ const styles = StyleSheet.create({
     height: 80,
     borderRadius: 40,
     marginRight: 20,
+    borderColor: '#fff', 
+    borderWidth: 5,
+    backgroundColor:'#fff' 
   },
   infoText: {
     flexDirection: 'column',
+  },
+    headerText:{
+    fontSize: 20,
+    color: '#FFFFFF',
+    marginBottom:15,
   },
 });
 
