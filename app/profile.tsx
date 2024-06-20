@@ -1,12 +1,13 @@
-// Profile.js
-
-import React from 'react';
-import { View, Text, StyleSheet, Image, FlatList } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, StyleSheet, Image, FlatList,TouchableOpacity, ScrollView  } from 'react-native';
 import {useWindowDimensions } from 'react-native';
 import { TabView, SceneMap, TabBar } from 'react-native-tab-view';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 const Profile = () => {
+
+  const [activeTab, setActiveTab] = useState('Loan History');
+
   const loanHistory = [
     { id: '1', title: 'Header', description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.', time: '8m ago' },
     { id: '2', title: 'Header', description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.', time: '8m ago' },
@@ -25,28 +26,53 @@ const Profile = () => {
           </View>
         </View>
       </View>
-      <View style={styles.tabs}>
-        <Text style={styles.activeTab}>Loan History</Text>
-        <Text style={styles.inactiveTab}>Profile</Text>
+
+      <View style={styles.tabContainer}>
+        <View style={styles.tabs}>
+          <TouchableOpacity 
+            style={[activeTab === 'Loan History' && styles.activeTab]} 
+            onPress={() => setActiveTab('Loan History')}
+          >
+            <Text style={[styles.tabText, activeTab === 'Loan History' && styles.activeTabText]}>Loan History</Text>
+          </TouchableOpacity>
+          <TouchableOpacity 
+            style={[styles.tab, activeTab === 'Profile' && styles.activeTab]} 
+            onPress={() => setActiveTab('Profile')}
+          >
+            <Text style={[styles.tabText, activeTab === 'Profile' && styles.activeTabText]}>Profile</Text>
+          </TouchableOpacity>
+        </View>
       </View>
 
-      <FlatList
-        data={loanHistory}
-        keyExtractor={(item) => item.id}
-        renderItem={({ item }) => (
-            
-          <View style={styles.loanItem}>
-            <View style={styles.loanHeader}>
-            <View style={styles.headerBell}>
-                <Icon name="bell" size={20} color="#5cb075" />
-                <Text style={styles.loanTitle}>{item.title}</Text>
+      <ScrollView style={styles.contentContainer}>
+        {activeTab === 'Loan History' && (
+          <View>
+              <FlatList
+          data={loanHistory}
+          keyExtractor={(item) => item.id}
+          renderItem={({ item }) => (
+              
+            <View style={styles.loanItem}>
+              <View style={styles.loanHeader}>
+              <View style={styles.headerBell}>
+                  <Icon name="bell" size={20} color="#5cb075" />
+                  <Text style={styles.loanTitle}>{item.title}</Text>
+              </View>
+                <Text style={styles.loanTime}>{item.time}</Text>
+              </View>
+              <Text style={styles.loanDescription}>{item.description}</Text>
             </View>
-              <Text style={styles.loanTime}>{item.time}</Text>
-            </View>
-            <Text style={styles.loanDescription}>{item.description}</Text>
+          )}
+        />
+            {/* Repeat the above block for more items */}
           </View>
         )}
-      />
+        {activeTab === 'Profile' && (
+          <View>
+            <Text>Profile content goes here...</Text>
+          </View>
+        )}
+      </ScrollView>
     </View>
   );
 };
@@ -73,10 +99,10 @@ const styles = StyleSheet.create({
     alignItems:'center',
     flexDirection: 'row',
     justifyContent: 'center',
-    borderBottomWidth: 1,
-    borderColor: '#CCCCCC',
-    width:180,
-    backgroundColor:'#f6f6f6',
+    // borderBottomWidth: 1,
+    // borderColor: '#CCCCCC',
+    // width:180,
+    // backgroundColor:'#f6f6f6',
     borderRadius:40
   },
   activeTab: {
@@ -85,7 +111,9 @@ const styles = StyleSheet.create({
     borderBottomWidth: 2,
     borderColor: '#4CAF50',
     backgroundColor:'#fff',
-    borderRadius:40
+    borderRadius:40,
+    marginRight:10,
+    marginLeft:10,
   },
   inactiveTab: {
     padding: 10,
@@ -141,7 +169,13 @@ const styles = StyleSheet.create({
   },
   headerBell:{
     flexDirection:'row',
-
+  },
+  tabText:{
+    color: '#4CAF50',
+  },
+  tabContainer:{
+    padding:10,
+    backgroundColor:'#fff'
   }
 });
 
