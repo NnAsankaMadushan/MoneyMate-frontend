@@ -80,10 +80,10 @@ const Profile = () => {
                 renderItem={({ item }) => (
                     
                   <View style={styles.loanIintem}>
-                    <Text style={styles.loanTitle}>{item.Name}</Text>
-                    <Text style={styles.loanTitle}>{item.Code}</Text>
-                    <Text style={styles.loanTitle}>{item.NicNo}</Text>
-                    <Text style={styles.loanTitle}>{item.state}</Text>
+                    <Text style={styles.detailsP}>{item.Name}</Text>
+                    <Text style={styles.detailsP}>{item.Code}</Text>
+                    <Text style={styles.detailsP}>{item.NicNo}</Text>
+                    <Text style={styles.detailsP}>{item.state}</Text>
                   </View>
                 )}
               />
@@ -120,21 +120,21 @@ const styles = StyleSheet.create({
     alignItems:'center',
     flexDirection: 'row',
     justifyContent: 'center',
-    backgroundColor:'gray',
-    marginRight:150,
-    marginLeft:195,
+    // backgroundColor:'gray',
+    
     borderColor: '#4CAF50',
-    // backgroundColor:'#fff',
+    backgroundColor:'#fff',
     borderRadius:40,
+    alignSelf: 'stretch'
 
   },
   activeTab: {
     padding: 20,
     color: '#4CAF50',
-    borderBottomWidth: 2,
+    borderWidth: 2,
     borderColor: '#4CAF50',
     backgroundColor:'#fff',
-    borderRadius:40,
+    borderRadius:50,
     marginRight:10,
     marginLeft:10,
   },
@@ -145,6 +145,7 @@ const styles = StyleSheet.create({
     borderRadius:40,
     marginRight:10,
     marginLeft:10,
+    backgroundColor:'gray',
   },
   loanItem: {
     padding: 15,
@@ -198,16 +199,25 @@ const styles = StyleSheet.create({
   loanIintem:{
     flexDirection:'column',
     alignItems:'center',
-    marginRight: 300,
-    marginLeft: 300,
-    backgroundColor:'red'
   },
   tabText:{
     color: '#4CAF50',
+    fontSize:18
   },
   tabContainer:{
     padding:10,
-    backgroundColor:'#fff'
+    backgroundColor:'#fff',
+    // alignSelf: 'stretch'
+  },
+  detailsP:{
+    backgroundColor:'#f6f6f6',
+    alignSelf: 'stretch',
+    margin:2,
+    padding:10,
+    borderRadius:10,
+    fontSize:18,
+    paddingLeft: '5%',
+    color:'#cdcdcd'
   }
 });
 
