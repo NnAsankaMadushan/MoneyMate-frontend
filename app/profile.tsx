@@ -14,6 +14,10 @@ const Profile = () => {
     { id: '3', title: 'Header', description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.', time: '8m ago' },
   ];
 
+  const infoP = [
+    { Name: 'Saman', Code: 'USR24001', NicNo: '981071000v', state: '8m ago' }
+  ];
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -54,7 +58,7 @@ const Profile = () => {
               
             <View style={styles.loanItem}>
               <View style={styles.loanHeader}>
-              <View style={styles.headerBell}>
+              <View style={styles.details}>
                   <Icon name="bell" size={20} color="#5cb075" />
                   <Text style={styles.loanTitle}>{item.title}</Text>
               </View>
@@ -68,8 +72,22 @@ const Profile = () => {
           </View>
         )}
         {activeTab === 'Profile' && (
-          <View>
-            <Text>Profile content goes here...</Text>
+          <View style={styles.infoContainer}>
+              <View>
+              <FlatList
+                data={infoP}
+                keyExtractor={(item) => item.Code}
+                renderItem={({ item }) => (
+                    
+                  <View style={styles.loanIintem}>
+                    <Text style={styles.loanTitle}>{item.Name}</Text>
+                    <Text style={styles.loanTitle}>{item.Code}</Text>
+                    <Text style={styles.loanTitle}>{item.NicNo}</Text>
+                    <Text style={styles.loanTitle}>{item.state}</Text>
+                  </View>
+                )}
+              />
+              </View>
           </View>
         )}
       </ScrollView>
@@ -81,6 +99,9 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#FFFFFF',
+  },
+  infoContainer:{
+    padding:10
   },
   header: {
     backgroundColor: '#4CAF50',
@@ -99,11 +120,13 @@ const styles = StyleSheet.create({
     alignItems:'center',
     flexDirection: 'row',
     justifyContent: 'center',
-    // borderBottomWidth: 1,
-    // borderColor: '#CCCCCC',
-    // width:180,
-    // backgroundColor:'#f6f6f6',
-    borderRadius:40
+    backgroundColor:'gray',
+    marginRight:150,
+    marginLeft:195,
+    borderColor: '#4CAF50',
+    // backgroundColor:'#fff',
+    borderRadius:40,
+
   },
   activeTab: {
     padding: 20,
@@ -119,7 +142,9 @@ const styles = StyleSheet.create({
     padding: 10,
     color: '#AAAAAA',
     borderColor: '#4CAF50',
-    borderRadius:40
+    borderRadius:40,
+    marginRight:10,
+    marginLeft:10,
   },
   loanItem: {
     padding: 15,
@@ -169,6 +194,13 @@ const styles = StyleSheet.create({
   },
   headerBell:{
     flexDirection:'row',
+  },
+  loanIintem:{
+    flexDirection:'column',
+    alignItems:'center',
+    marginRight: 300,
+    marginLeft: 300,
+    backgroundColor:'red'
   },
   tabText:{
     color: '#4CAF50',
