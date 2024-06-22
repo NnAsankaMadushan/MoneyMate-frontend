@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, Image, FlatList,TouchableOpacity, ScrollView  }
 import {useWindowDimensions } from 'react-native';
 import { TabView, SceneMap, TabBar } from 'react-native-tab-view';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import {Link} from 'expo-router'
 
 const Profile = () => {
 
@@ -15,13 +16,17 @@ const Profile = () => {
   ];
 
   const infoP = [
-    { Name: 'Saman', Code: 'USR24001', NicNo: '981071000v', state: '8m ago' }
+    { Name: 'Saman', Code: 'USR24001', NicNo: '981071000v', state: 'Public' }
   ];
 
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-      <Text style={styles.headerText}>Back</Text>
+      <TouchableOpacity>
+        <Link href={'/dashboard'} style={styles.headerText}>
+          <Text>Back</Text>
+        </Link>
+      </TouchableOpacity>
         <View style={styles.profileContainer}>
           <Image source={require('../components/images/profile.png')} style={styles.profileImage} />
           <View style={styles.infoText}>
@@ -37,13 +42,13 @@ const Profile = () => {
             style={[activeTab === 'Loan History' && styles.activeTab]} 
             onPress={() => setActiveTab('Loan History')}
           >
-            <Text style={[styles.tabText, activeTab === 'Loan History' && styles.tabText]}>Loan History</Text>
+            <Text style={[styles.inactiveTabText, activeTab === 'Loan History' && styles.tabText]}>Loan History</Text>
           </TouchableOpacity>
           <TouchableOpacity 
             style={[styles.tabs, activeTab === 'Profile' && styles.activeTab]} 
             onPress={() => setActiveTab('Profile')}
           >
-            <Text style={[styles.tabText, activeTab === 'Profile' && styles.tabText]}>Profile</Text>
+            <Text style={[styles.inactiveTabText, activeTab === 'Profile' && styles.tabText]}>Profile</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -104,7 +109,7 @@ const styles = StyleSheet.create({
     padding:10
   },
   header: {
-    backgroundColor: '#4CAF50',
+    backgroundColor: '#5cb075',
     padding: 20,
   },
   userName: {
@@ -171,6 +176,7 @@ const styles = StyleSheet.create({
     marginTop: 5,
     fontSize: 16,
     color: '#555555',
+    marginLeft:25
   },
   profileContainer: {
     flexDirection: 'row',
@@ -217,10 +223,17 @@ const styles = StyleSheet.create({
     borderRadius:10,
     fontSize:18,
     paddingLeft: '5%',
-    color:'#cdcdcd'
+    color:'#cdcdcd',
+    marginBottom:15,
+    borderColor:'#d0d0d0',
+    borderWidth:2
   },
   details:{
     flexDirection:'row',
+  },
+  inactiveTabText:{
+    color:'gray',
+    fontSize:18
   }
 });
 
