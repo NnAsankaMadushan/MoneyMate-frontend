@@ -207,7 +207,7 @@ const styles = StyleSheet.create({
   tabContainer:{
     padding:10,
     backgroundColor:'#fff',
-    // alignSelf: 'stretch'
+    alignSelf: 'stretch'
   },
   detailsP:{
     backgroundColor:'#f6f6f6',
@@ -218,6 +218,9 @@ const styles = StyleSheet.create({
     fontSize:18,
     paddingLeft: '5%',
     color:'#cdcdcd'
+  },
+  details:{
+    flexDirection:'row',
   }
 });
 
