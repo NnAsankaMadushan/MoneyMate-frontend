@@ -37,18 +37,18 @@ const Profile = () => {
             style={[activeTab === 'Loan History' && styles.activeTab]} 
             onPress={() => setActiveTab('Loan History')}
           >
-            <Text style={[styles.tabText, activeTab === 'Loan History' && styles.activeTabText]}>Loan History</Text>
+            <Text style={[styles.tabText, activeTab === 'Loan History' && styles.tabText]}>Loan History</Text>
           </TouchableOpacity>
           <TouchableOpacity 
-            style={[styles.tab, activeTab === 'Profile' && styles.activeTab]} 
+            style={[styles.tabs, activeTab === 'Profile' && styles.activeTab]} 
             onPress={() => setActiveTab('Profile')}
           >
-            <Text style={[styles.tabText, activeTab === 'Profile' && styles.activeTabText]}>Profile</Text>
+            <Text style={[styles.tabText, activeTab === 'Profile' && styles.tabText]}>Profile</Text>
           </TouchableOpacity>
         </View>
       </View>
 
-      <ScrollView style={styles.contentContainer}>
+      <ScrollView>
         {activeTab === 'Loan History' && (
           <View>
               <FlatList
