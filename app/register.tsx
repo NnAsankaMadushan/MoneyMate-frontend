@@ -1,12 +1,24 @@
 import React from 'react'
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {Link} from 'expo-router'
-import { View, Text, StyleSheet, Image, FlatList,TouchableOpacity, ScrollView  } from 'react-native';
+import { View, Text, StyleSheet, Image, FlatList,TouchableOpacity, ScrollView,TextInput, Button,  } from 'react-native';
+import { Formik } from 'formik';
+import * as Yup from 'yup';
 const Register = () => {
 
-const infoP = [
-    { Name: 'Saman', Code: 'USR24001', NicNo: '981071000v', state: 'Public' }
-    ];
+const infoP = Yup.object().shape({
+  name: Yup.string()
+    .required('Name is required')
+    .min(2, 'Name must be at least 2 characters'),
+  email: Yup.string()
+    .email('Invalid email')
+    .required('Email is required'),
+  password: Yup.string()
+    .required('Password is required')
+    .min(6, 'Password must be at least 6 characters'),
+});
+
+
   return (
     <View style={styles.container}>
         <View style={styles.headerReg}>
@@ -15,21 +27,49 @@ const infoP = [
             <Text style={styles.nextText}>Next</Text>
         </View>
         <View style={styles.infoContainer}>
+        <Formik
+            initialValues={{ name: '', email: '', password: '' }}
+            infoP={infoP}
+            onSubmit={(values) => {
+            // Handle form submission
+            console.log(values);
+            }}
+        >
+            {({ handleChange, handleBlur, handleSubmit, values, errors, touched }) => (
             <View>
-            <FlatList
-            data={infoP}
-            keyExtractor={(item) => item.Code}
-            renderItem={({ item }) => (
-                
-                <View style={styles.detailsReg}>
-                <Text style={styles.detailsR}>{item.Name}</Text>
-                <Text style={styles.detailsR}>{item.Code}</Text>
-                <Text style={styles.detailsR}>{item.NicNo}</Text>
-                <Text style={styles.detailsR}>{item.state}</Text>
-                </View>
-            )}
-            />
+                <TextInput
+                style={styles.detailsR}
+                placeholder="Name"
+                onChangeText={handleChange('name')}
+                onBlur={handleBlur('name')}
+                value={values.name}
+                />
+                {touched.name && errors.name && <Text style={styles.error}>{errors.name}</Text>}
+
+                <TextInput
+                style={styles.detailsR}
+                placeholder="Email"
+                onChangeText={handleChange('email')}
+                onBlur={handleBlur('email')}
+                value={values.email}
+                keyboardType="email-address"
+                />
+                {touched.email && errors.email && <Text style={styles.error}>{errors.email}</Text>}
+
+                <TextInput
+                style={styles.detailsR}
+                placeholder="Password"
+                onChangeText={handleChange('password')}
+                onBlur={handleBlur('password')}
+                value={values.password}
+                secureTextEntry
+                />
+                {touched.password && errors.password && <Text style={styles.error}>{errors.password}</Text>}
+
+                <Button onPress={handleSubmit} title="Submit" />
             </View>
+            )}
+      </Formik>
         </View>
     </View>
   )
