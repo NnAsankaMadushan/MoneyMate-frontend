@@ -21,10 +21,11 @@ const infoP = Yup.object().shape({
 
   return (
     <View style={styles.container}>
-        <View style={styles.headerReg}>
+        <View style={styles.headerReg} >
             <Icon name="close" size={25} color="#d0d0d0" />
             <Text style={styles.headerText}>Register</Text>
-            <Text style={styles.nextText}>Next</Text>
+            {/* <Button title="Next" /> */}
+            <Text  style={styles.nextText}>Next</Text>
         </View>
         <View style={styles.infoContainer}>
         <Formik
@@ -56,6 +57,42 @@ const infoP = Yup.object().shape({
                 />
                 {touched.email && errors.email && <Text style={styles.error}>{errors.email}</Text>}
 
+                <TextInput
+                style={styles.detailsR}
+                placeholder="Password"
+                onChangeText={handleChange('password')}
+                onBlur={handleBlur('password')}
+                value={values.password}
+                secureTextEntry
+                />
+                {touched.password && errors.password && <Text style={styles.error}>{errors.password}</Text>}
+                <TextInput
+                style={styles.detailsR}
+                placeholder="Password"
+                onChangeText={handleChange('password')}
+                onBlur={handleBlur('password')}
+                value={values.password}
+                secureTextEntry
+                />
+                {touched.password && errors.password && <Text style={styles.error}>{errors.password}</Text>}
+                <TextInput
+                style={styles.detailsR}
+                placeholder="Password"
+                onChangeText={handleChange('password')}
+                onBlur={handleBlur('password')}
+                value={values.password}
+                secureTextEntry
+                />
+                {touched.password && errors.password && <Text style={styles.error}>{errors.password}</Text>}
+                <TextInput
+                style={styles.detailsR}
+                placeholder="Password"
+                onChangeText={handleChange('password')}
+                onBlur={handleBlur('password')}
+                value={values.password}
+                secureTextEntry
+                />
+                {touched.password && errors.password && <Text style={styles.error}>{errors.password}</Text>}
                 <TextInput
                 style={styles.detailsR}
                 placeholder="Password"
@@ -117,95 +154,10 @@ const styles = StyleSheet.create({
         fontSize:18,
         color:'#5cb075',
         fontWeight:500
-      }
+      },
+      error: {
+            color: 'red',
+            marginBottom: 10,
+          },
 })
 export default Register
-
-
-// import React from 'react';
-// import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
-// import { Formik } from 'formik';
-// import * as Yup from 'yup';
-
-// const validationSchema = Yup.object().shape({
-//   name: Yup.string()
-//     .required('Name is required')
-//     .min(2, 'Name must be at least 2 characters'),
-//   email: Yup.string()
-//     .email('Invalid email')
-//     .required('Email is required'),
-//   password: Yup.string()
-//     .required('Password is required')
-//     .min(6, 'Password must be at least 6 characters'),
-// });
-
-// const App = () => {
-//   return (
-//     <View style={styles.container}>
-//       <Formik
-//         initialValues={{ name: '', email: '', password: '' }}
-//         validationSchema={validationSchema}
-//         onSubmit={(values) => {
-//           // Handle form submission
-//           console.log(values);
-//         }}
-//       >
-//         {({ handleChange, handleBlur, handleSubmit, values, errors, touched }) => (
-//           <View>
-//             <TextInput
-//               style={styles.input}
-//               placeholder="Name"
-//               onChangeText={handleChange('name')}
-//               onBlur={handleBlur('name')}
-//               value={values.name}
-//             />
-//             {touched.name && errors.name && <Text style={styles.error}>{errors.name}</Text>}
-
-//             <TextInput
-//               style={styles.input}
-//               placeholder="Email"
-//               onChangeText={handleChange('email')}
-//               onBlur={handleBlur('email')}
-//               value={values.email}
-//               keyboardType="email-address"
-//             />
-//             {touched.email && errors.email && <Text style={styles.error}>{errors.email}</Text>}
-
-//             <TextInput
-//               style={styles.input}
-//               placeholder="Password"
-//               onChangeText={handleChange('password')}
-//               onBlur={handleBlur('password')}
-//               value={values.password}
-//               secureTextEntry
-//             />
-//             {touched.password && errors.password && <Text style={styles.error}>{errors.password}</Text>}
-
-//             <Button onPress={handleSubmit} title="Submit" />
-//           </View>
-//         )}
-//       </Formik>
-//     </View>
-//   );
-// };
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     justifyContent: 'center',
-//     padding: 20,
-//   },
-//   input: {
-//     height: 40,
-//     borderColor: 'gray',
-//     borderWidth: 1,
-//     marginBottom: 10,
-//     paddingLeft: 10,
-//   },
-//   error: {
-//     color: 'red',
-//     marginBottom: 10,
-//   },
-// });
-
-// export default App;
