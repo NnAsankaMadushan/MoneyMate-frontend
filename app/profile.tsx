@@ -232,7 +232,7 @@ const styles = StyleSheet.create({
     flexDirection:'row',
   },
   inactiveTabText:{
-    color:'gray',
+    color:'#d0d0d0',
     fontSize:18
   }
 });
