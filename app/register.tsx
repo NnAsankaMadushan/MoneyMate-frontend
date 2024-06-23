@@ -5,6 +5,7 @@ import { View, Text, StyleSheet, Image, FlatList,TouchableOpacity, ScrollView,Te
 import { Picker } from '@react-native-picker/picker';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
+import DatePicker from 'react-native-datepicker';
 const Register = () => {
 
 const infoP = Yup.object().shape({
@@ -115,15 +116,7 @@ const infoP = Yup.object().shape({
                 secureTextEntry
                 />
                 {touched.phoneNumber && errors.phoneNumber && <Text style={styles.error}>{errors.phoneNumber}</Text>}
-                <TextInput
-                style={styles.detailsR}
-                placeholder="Phone Number"
-                onChangeText={handleChange('phoneNumber')}
-                onBlur={handleBlur('phoneNumber')}
-                value={values.phoneNumber}
-                secureTextEntry
-                />
-                {touched.phoneNumber && errors.phoneNumber && <Text style={styles.error}>{errors.phoneNumber}</Text>}
+                
                 
                 <View>
                 <Picker
@@ -139,6 +132,33 @@ const infoP = Yup.object().shape({
                   <Picker.Item label="Retired" value="retired" />
                 </Picker>
               </View>
+
+              <DatePicker
+       style={styles.datePicker}
+        date={dateOfBirth}
+        mode="date"
+        placeholder="Select Date of Birth"
+        format="YYYY-MM-DD"
+        minDate="1900-01-01"
+        maxDate={new Date()}
+        confirmBtnText="Confirm"
+        cancelBtnText="Cancel"
+        customStyles={{
+          dateIcon: {
+            position: 'absolute',
+            left: 0,
+            top: 4,
+            marginLeft: 0,
+          },
+          dateInput: {
+            marginLeft: 40,
+            borderWidth: 0,
+          },
+        }}
+        onDateChange={(date) => {
+          setDateOfBirth(date);
+        }}
+      />
 
                 <Button onPress={handleSubmit} title="Submit" />
             </View>
@@ -196,5 +216,33 @@ const styles = StyleSheet.create({
             color: 'red',
             marginBottom: 10,
           },
+      datePicker: {
+        width: '100%',
+        // marginBottom: 12,
+        backgroundColor:'#f6f6f6',
+        alignSelf: 'stretch',
+        margin:2,
+        padding:10,
+        borderRadius:10,
+        fontSize:18,
+        paddingLeft: '5%',
+        color:'#cdcdcd',
+        marginBottom:15,
+        borderColor:'#d0d0d0',
+        borderWidth:2,
+        // justifyContent:'flex-start',
+        alignItems:'flex-start'
+      },
+      input: {
+        borderColor: 'gray',
+        borderWidth: 1,
+        marginBottom: 12,
+        paddingLeft: 10,
+      },
+      pickerContainer: {
+        borderColor: 'gray',
+        borderWidth: 1,
+        borderRadius: 5,
+      },
 })
 export default Register
