@@ -57,7 +57,7 @@ const infoP = Yup.object().shape({
                 />
                 {touched.email && errors.email && <Text style={styles.error}>{errors.email}</Text>}
 
-                <TextInput
+                {/* <TextInput
                 style={styles.detailsR}
                 placeholder="Password"
                 onChangeText={handleChange('password')}
@@ -65,11 +65,11 @@ const infoP = Yup.object().shape({
                 value={values.password}
                 secureTextEntry
                 />
-                {touched.password && errors.password && <Text style={styles.error}>{errors.password}</Text>}
+                {touched.password && errors.password && <Text style={styles.error}>{errors.password}</Text>} */}
                 <TextInput
                 style={styles.detailsR}
-                placeholder="Password"
-                onChangeText={handleChange('password')}
+                placeholder="Address"
+                onChangeText={handleChange('address')}
                 onBlur={handleBlur('password')}
                 value={values.password}
                 secureTextEntry
@@ -77,7 +77,7 @@ const infoP = Yup.object().shape({
                 {touched.password && errors.password && <Text style={styles.error}>{errors.password}</Text>}
                 <TextInput
                 style={styles.detailsR}
-                placeholder="Password"
+                placeholder="Age"
                 onChangeText={handleChange('password')}
                 onBlur={handleBlur('password')}
                 value={values.password}
