@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {Link} from 'expo-router'
-import { View, Text, StyleSheet, Image, FlatList,TouchableOpacity, ScrollView,TextInput, Button,  } from 'react-native';
+import { View, Text, StyleSheet, Image, FlatList,TouchableOpacity, ScrollView,TextInput, Button} from 'react-native';
+import { Picker } from '@react-native-picker/picker';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 const Register = () => {
@@ -17,7 +18,10 @@ const infoP = Yup.object().shape({
     .required('Password is required')
     .min(6, 'Password must be at least 6 characters'),
 });
-
+  const [dateOfBirth, setDateOfBirth] = useState('');
+  const [gender, setGender] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const [employmentStatus, setEmploymentStatus] = useState('');
 
   return (
     <View style={styles.container}>
@@ -78,30 +82,63 @@ const infoP = Yup.object().shape({
                 <TextInput
                 style={styles.detailsR}
                 placeholder="Age"
-                onChangeText={handleChange('password')}
-                onBlur={handleBlur('password')}
-                value={values.password}
+                onChangeText={handleChange('age')}
+                onBlur={handleBlur('age')}
+                value={values.age}
                 secureTextEntry
                 />
-                {touched.password && errors.password && <Text style={styles.error}>{errors.password}</Text>}
+                {touched.age && errors.age && <Text style={styles.error}>{errors.age}</Text>}
                 <TextInput
                 style={styles.detailsR}
-                placeholder="Password"
-                onChangeText={handleChange('password')}
-                onBlur={handleBlur('password')}
-                value={values.password}
+                placeholder="Date of Birth"
+                onChangeText={handleChange('dateOfBirth')}
+                onBlur={handleBlur('dateOfBirth')}
+                value={values.dateOfBirth}
                 secureTextEntry
                 />
-                {touched.password && errors.password && <Text style={styles.error}>{errors.password}</Text>}
+                {touched.dateOfBirth && errors.dateOfBirth && <Text style={styles.error}>{errors.dateOfBirth}</Text>}
                 <TextInput
                 style={styles.detailsR}
-                placeholder="Password"
-                onChangeText={handleChange('password')}
-                onBlur={handleBlur('password')}
-                value={values.password}
+                placeholder="Gender"
+                onChangeText={handleChange('gender')}
+                onBlur={handleBlur('gender')}
+                value={values.gender}
                 secureTextEntry
                 />
-                {touched.password && errors.password && <Text style={styles.error}>{errors.password}</Text>}
+                {touched.gender && errors.gender && <Text style={styles.error}>{errors.gender}</Text>}
+                <TextInput
+                style={styles.detailsR}
+                placeholder="Phone Number"
+                onChangeText={handleChange('phoneNumber')}
+                onBlur={handleBlur('phoneNumber')}
+                value={values.phoneNumber}
+                secureTextEntry
+                />
+                {touched.phoneNumber && errors.phoneNumber && <Text style={styles.error}>{errors.phoneNumber}</Text>}
+                <TextInput
+                style={styles.detailsR}
+                placeholder="Phone Number"
+                onChangeText={handleChange('phoneNumber')}
+                onBlur={handleBlur('phoneNumber')}
+                value={values.phoneNumber}
+                secureTextEntry
+                />
+                {touched.phoneNumber && errors.phoneNumber && <Text style={styles.error}>{errors.phoneNumber}</Text>}
+                
+                <View>
+                <Picker
+                  selectedValue={employmentStatus}
+                  style={styles.detailsR}
+                  onValueChange={(itemValue, itemIndex) => setEmploymentStatus(itemValue)}
+                >
+                  <Picker.Item label="Employment Status (drop down)" value="" />
+                  <Picker.Item label="Employed" value="employed" />
+                  <Picker.Item label="Unemployed" value="unemployed" />
+                  <Picker.Item label="Self-Employed" value="self-employed" />
+                  <Picker.Item label="Student" value="student" />
+                  <Picker.Item label="Retired" value="retired" />
+                </Picker>
+              </View>
 
                 <Button onPress={handleSubmit} title="Submit" />
             </View>
