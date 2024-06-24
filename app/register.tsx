@@ -27,7 +27,9 @@ const infoP = Yup.object().shape({
   return (
     <View style={styles.container}>
         <View style={styles.headerReg} >
+        <Link href={'/dashboard'}>
             <Icon name="close" size={25} color="#d0d0d0" />
+        </Link>
             <Text style={styles.headerText}>Register</Text>
             {/* <Button title="Next" /> */}
             <Link href={'/register2'} style={styles.nextText}>
