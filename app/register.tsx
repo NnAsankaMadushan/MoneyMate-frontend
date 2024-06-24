@@ -154,6 +154,14 @@ const infoP = Yup.object().shape({
             marginLeft: 40,
             borderWidth: 0,
           },
+          // dateText: {
+          //   fontSize: 48, 
+          //   color: '#cdcdcd',
+          // },
+          placeholderText: {
+            fontSize:18,
+            color: '#cdcdcd',
+          },
         }}
         onDateChange={(date) => {
           setDateOfBirth(date);
@@ -224,19 +232,18 @@ const styles = StyleSheet.create({
         margin:2,
         padding:10,
         borderRadius:10,
-        fontSize:18,
         paddingLeft: '5%',
         color:'#cdcdcd',
         marginBottom:15,
         borderColor:'#d0d0d0',
         borderWidth:2,
         // justifyContent:'flex-start',
-        alignItems:'flex-start'
+        alignItems:'flex-start',
       },
       input: {
         borderColor: 'gray',
         borderWidth: 1,
-        marginBottom: 12,
+        // marginBottom: 12,
         paddingLeft: 10,
       },
       pickerContainer: {
