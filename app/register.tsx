@@ -30,11 +30,19 @@ const infoP = Yup.object().shape({
             <Icon name="close" size={25} color="#d0d0d0" />
             <Text style={styles.headerText}>Register</Text>
             {/* <Button title="Next" /> */}
-            <Text  style={styles.nextText}>Next</Text>
+            <Link href={'/register2'} style={styles.nextText}>
+              <Text>Next</Text>
+            </Link>
         </View>
         <View style={styles.infoContainer}>
         <Formik
-            initialValues={{ name: '', email: '', password: '' }}
+            initialValues={{ name: '', email: '',
+               address: '', 
+               age: '', 
+               dateOfBirth: '', 
+               gender: '', 
+               phoneNumber: '', 
+              }}
             infoP={infoP}
             onSubmit={(values) => {
             // Handle form submission
@@ -76,17 +84,17 @@ const infoP = Yup.object().shape({
                 placeholder="Address"
                 onChangeText={handleChange('address')}
                 onBlur={handleBlur('password')}
-                value={values.password}
-                secureTextEntry
+                value={values.address}
+                // secureTextEntry
                 />
-                {touched.password && errors.password && <Text style={styles.error}>{errors.password}</Text>}
+                {touched.address && errors.address && <Text style={styles.error}>{errors.address}</Text>}
                 <TextInput
                 style={styles.detailsR}
                 placeholder="Age"
                 onChangeText={handleChange('age')}
                 onBlur={handleBlur('age')}
                 value={values.age}
-                secureTextEntry
+                // secureTextEntry
                 />
                 {touched.age && errors.age && <Text style={styles.error}>{errors.age}</Text>}
                 <TextInput
@@ -95,7 +103,7 @@ const infoP = Yup.object().shape({
                 onChangeText={handleChange('dateOfBirth')}
                 onBlur={handleBlur('dateOfBirth')}
                 value={values.dateOfBirth}
-                secureTextEntry
+                // secureTextEntry
                 />
                 {touched.dateOfBirth && errors.dateOfBirth && <Text style={styles.error}>{errors.dateOfBirth}</Text>}
                 <TextInput
@@ -104,7 +112,7 @@ const infoP = Yup.object().shape({
                 onChangeText={handleChange('gender')}
                 onBlur={handleBlur('gender')}
                 value={values.gender}
-                secureTextEntry
+                // secureTextEntry
                 />
                 {touched.gender && errors.gender && <Text style={styles.error}>{errors.gender}</Text>}
                 <TextInput
@@ -113,7 +121,7 @@ const infoP = Yup.object().shape({
                 onChangeText={handleChange('phoneNumber')}
                 onBlur={handleBlur('phoneNumber')}
                 value={values.phoneNumber}
-                secureTextEntry
+                // secureTextEntry
                 />
                 {touched.phoneNumber && errors.phoneNumber && <Text style={styles.error}>{errors.phoneNumber}</Text>}
                 
@@ -168,7 +176,7 @@ const infoP = Yup.object().shape({
         }}
       />
 
-                <Button onPress={handleSubmit} title="Submit" />
+                {/* <Button onPress={handleSubmit} title="Submit" />// */}
             </View>
             )}
       </Formik>
