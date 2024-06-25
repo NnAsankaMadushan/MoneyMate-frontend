@@ -1,94 +1,85 @@
-import React from 'react'
-import { Link, Slot } from 'expo-router'
+import React from 'react';
+import { Link, Slot } from 'expo-router';
 import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-
 const RootLayout = () => {
   return (
-  <View className='relative w-full flex-1'>
-    <Slot />
-    <View  style={styles.navigationBar}>
+    <View style={styles.container}>
+      <Slot />
+      <View style={styles.navigationBar}>
         <View style={styles.navi}>
-          
-            <TouchableOpacity style={styles.navItem}>
+          <TouchableOpacity style={styles.navItem}>
             <Link href={'/'}>
-                <Icon name="home" size={30} color="#5cb075" style={styles.icons} />
+              <Icon name="home" size={30} color="#5cb075" style={styles.icons} />
             </Link>
-                <Text style={styles.naviText}>Home</Text>
-              </TouchableOpacity>
-          
-         
-            <TouchableOpacity style={styles.navItem}>
+            <Text style={styles.naviText}>Home</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.navItem}>
             <Link href={'/register'}>
-                <Icon name="user-plus" size={30} color="#5cb075" style={styles.icons} />
+              <Icon name="user-plus" size={30} color="#5cb075" style={styles.icons} />
             </Link>
-                <Text style={styles.naviText}>Register</Text>
-              </TouchableOpacity>
-          
-          
-            <TouchableOpacity style={styles.navItem}>
+            <Text style={styles.naviText}>Register</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.navItem}>
             <Link href={'/dashboard'}>
-                <Icon name="users" size={30} color="#5cb075" style={styles.icons} />
+              <Icon name="users" size={30} color="#5cb075" style={styles.icons} />
             </Link>
-                <Text style={styles.naviText}>Clients</Text>
-              </TouchableOpacity>
-         
-          
-            <TouchableOpacity style={styles.navItem}>
+            <Text style={styles.naviText}>Clients</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.navItem}>
             <Link href={'/reports'}>
-                <Icon name="file" size={30} color="#5cb075" style={styles.icons} />
+              <Icon name="file" size={30} color="#5cb075" style={styles.icons} />
             </Link>
-                <Text style={styles.naviText}>Reports</Text>
-              </TouchableOpacity>
-      
-          
-            <TouchableOpacity style={styles.navItem}>
+            <Text style={styles.naviText}>Reports</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.navItem}>
             <Link href={'/profile'}>
-                <Icon name="user" size={30} color="#5cb075" style={styles.icons} />
+              <Icon name="user" size={30} color="#5cb075" style={styles.icons} />
             </Link>
-                <Text style={styles.naviText}>Profile</Text>
-              </TouchableOpacity>
-          
-            
-
-
+            <Text style={styles.naviText}>Profile</Text>
+          </TouchableOpacity>
         </View>
+      </View>
     </View>
-  </View> 
   );
 };
 
 const styles = StyleSheet.create({
-  navigationBar:{
-    width:'100%',
-    backgroundColor:"#f6f6f6",
-    zIndex:50,
-    height:90,
-    padding:10,
-    borderColor: '#c9c9c9', 
-    // borderColor:'#fff',
-    borderWidth: 1, 
+  container: {
+    flex: 1,
+    justifyContent: 'space-between',
   },
-  navi:{
+  navigationBar: {
+    width: '100%',
+    backgroundColor: "#f6f6f6",
+    height: 90,
+    padding: 10,
+    borderColor: '#c9c9c9',
+    borderTopWidth: 1,
+  },
+  navi: {
     justifyContent: 'space-around',
-    flexDirection:"row",
-    alignItems: 'center', 
-    padding:5
+    flexDirection: "row",
+    alignItems: 'center',
+    padding: 5,
   },
-  naviText:{
+  naviText: {
     color: '#5cb075',
-    fontSize:18,
+    fontSize: 18,
   },
-  icons:{
+  icons: {
     marginRight: 15,
-    color:'#5cb075',
+    color: '#5cb075',
   },
   navItem: {
-    flexDirection: 'column', 
+    flexDirection: 'column',
     alignItems: 'center',
   },
-
 });
 
-export default RootLayout
+export default RootLayout;
