@@ -10,9 +10,7 @@ const Index = () => {
             <Icon name="close" size={25} color="#d0d0d0" />
         </Link>
             <Text style={styles.LoginText}>Login</Text>
-            {/* <Button title="Next" /> */}
-            
-            <Text></Text>
+                        <Text></Text>
             
         </View>
     </view>

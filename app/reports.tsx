@@ -69,7 +69,6 @@ const Reports = () => {
         )}
         {activeTab === 'Monthly reports' && (
           <View>
-              <View>
               <FlatList
                 data={infoP}
                 keyExtractor={(item) => item.Code}
@@ -80,7 +79,7 @@ const Reports = () => {
           data={MonthlyReports}
           keyExtractor={(item) => item.id}
           renderItem={({ item }) => (
-              
+          <View style={styles.infoContainer}>
             <View style={styles.loanItem}>
               <View style={styles.loanHeader}>
               <View style={styles.details}>
@@ -91,12 +90,12 @@ const Reports = () => {
               </View>
               <Text style={styles.loanDescription}>{item.description}</Text>
             </View>
+            </View>
           )}
         />
           </View>
                 )}
               />
-              </View>
           </View>
         )}
       </ScrollView>
@@ -179,6 +178,7 @@ const styles = StyleSheet.create({
       padding: 15,
       borderBottomWidth: 1,
       borderColor: '#CCCCCC',
+      width:550,
       // flexDirection:'row'
     },
     loanHeader: {
@@ -212,7 +212,10 @@ const styles = StyleSheet.create({
     details:{
       flexDirection:'row',
     },
-    
+    infoContainer:{
+    width: '100%',
+    alignItems: 'center',
+    }
   });
 
 export default Reports
