@@ -67,14 +67,8 @@ const Reports = () => {
         />
           </View>
         )}
-        {activeTab === 'Monthly reports' && (
+        {activeTab === 'Monthly reports' && (          
           <View>
-              <FlatList
-                data={infoP}
-                keyExtractor={(item) => item.Code}
-                renderItem={({ item }) => (
-                    
-                  <View>
               <FlatList
           data={MonthlyReports}
           keyExtractor={(item) => item.id}
@@ -93,9 +87,6 @@ const Reports = () => {
             </View>
           )}
         />
-          </View>
-                )}
-              />
           </View>
         )}
       </ScrollView>
