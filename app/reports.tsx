@@ -16,10 +16,6 @@ const Reports = () => {
     { id: '3', title: 'Header', description: 'hiiiiiiiiiiiiiiiiiiiiiiiiiiiii.', time: '8m ago' },
   ];
 
-  const infoP = [
-    { Name: 'Saman', Code: 'USR24001', NicNo: '981071000v', state: 'Public' }
-  ];
-
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -56,7 +52,7 @@ const Reports = () => {
             <View style={styles.loanItem}>
               <View style={styles.loanHeader}>
               <View style={styles.details}>
-                  <Icon name="bell" size={20} color="#5cb075" />
+                  <Icon name="file" size={20} color="#5cb075" />
                   <Text style={styles.loanTitle}>{item.title}</Text>
               </View>
                 <Text style={styles.loanTime}>{item.time}</Text>
@@ -77,7 +73,7 @@ const Reports = () => {
             <View style={styles.loanItem}>
               <View style={styles.loanHeader}>
               <View style={styles.details}>
-                  <Icon name="bell" size={20} color="#5cb075" />
+                  <Icon name="file" size={20} color="#5cb075" />
                   <Text style={styles.loanTitle}>{item.title}</Text>
               </View>
                 <Text style={styles.loanTime}>{item.time}</Text>
