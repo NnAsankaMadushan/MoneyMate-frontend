@@ -178,6 +178,9 @@ const styles = StyleSheet.create({
     padding: 15,
     borderRadius: 25,
     alignItems: 'center',
+    marginVertical: 16,
+    justifyContent: 'flex-end',
+    
   },
   buttonText: {
     color: '#fff',
