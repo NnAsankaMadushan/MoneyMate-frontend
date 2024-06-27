@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { Link, Slot } from 'expo-router';
 
 const Dashboard = () => {
   return (
@@ -29,8 +30,11 @@ const Dashboard = () => {
           <Text style={styles.menuText}>Make Payments</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.menuItem}>
-          <Icon name="cogs" size={30} color="#5cb075" style={styles.icons} />
-          <Text style={styles.menuText}>Settings</Text>
+
+          <Link href={'/settings'}>
+            <Icon name="cogs" size={30} color="#5cb075" style={styles.icons} />
+            <Text style={styles.menuText}>Settings</Text>
+            </Link>
         </TouchableOpacity>
         <TouchableOpacity style={styles.menuItem}>
           <Icon name="users" size={30} color="#5cb075" style={styles.icons} />
