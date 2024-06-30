@@ -28,8 +28,10 @@ const Dashboard = () => {
           </Link>
         </TouchableOpacity>
         <TouchableOpacity style={styles.menuItem}>
-          <Icon name="credit-card" size={30} color="#5cb075" style={styles.icons} />
-          <Text style={styles.menuText}>Make Payments</Text>
+          <Link href={'/makepayment'}>
+            <Icon name="credit-card" size={30} color="#5cb075" style={styles.icons} />
+            <Text style={styles.menuText}>Make Payments</Text>
+          </Link>
         </TouchableOpacity>
         <TouchableOpacity style={styles.menuItem}>
           <Link href={'/settings'}>
