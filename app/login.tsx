@@ -55,8 +55,8 @@ const styles = StyleSheet.create({
     verticalAlign:'middle',
     alignItems: 'center',
     // marginTop: '5%',
-    paddingTop: '50%',
-    paddingBottom: '50%',
+    paddingTop: '30%',
+    // paddingBottom: '50%',
     alignSelf: 'stretch',
 
   },

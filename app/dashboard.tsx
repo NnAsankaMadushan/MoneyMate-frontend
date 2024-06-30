@@ -22,15 +22,16 @@ const Dashboard = () => {
           <Text style={styles.menuText}>Create User</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.menuItem}>
-          <Icon name="line-chart" size={30} color="#5cb075" style={styles.icons} />
-          <Text style={styles.menuText}>Reports</Text>
+          <Link href={'/reports'}>
+            <Icon name="line-chart" size={30} color="#5cb075" style={styles.icons} />
+            <Text style={styles.menuText}>Reports</Text>
+          </Link>
         </TouchableOpacity>
         <TouchableOpacity style={styles.menuItem}>
           <Icon name="credit-card" size={30} color="#5cb075" style={styles.icons} />
           <Text style={styles.menuText}>Make Payments</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.menuItem}>
-
           <Link href={'/settings'}>
             <Icon name="cogs" size={30} color="#5cb075" style={styles.icons} />
             <Text style={styles.menuText}>Settings</Text>
