@@ -13,7 +13,7 @@ const Makepayment = () => {
           <Icon name="close" size={25} color="#d0d0d0" />
         </Link>
         <Text style={styles.HeadStyleText}>Make Payment</Text>
-        <Link href={'/register2'} style={styles.nextText}>
+        <Link href={'/makepayment1'} style={styles.nextText}>
               <Text>Next</Text>
             </Link>
       </View>
