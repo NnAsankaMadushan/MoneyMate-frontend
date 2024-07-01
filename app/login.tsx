@@ -1,24 +1,27 @@
 import React, { useState } from 'react';
-import { Link } from 'expo-router';
+import { Link, useRouter } from 'expo-router';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { View, Text, StyleSheet, TextInput, TouchableOpacity, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, TextInput, TouchableOpacity, ScrollView, Alert } from 'react-native';
 
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const router = useRouter();
 
   const handleLogin = () => {
+    if (!username || !password) {
+      Alert.alert('Error', 'Please enter both username and password.');
+      return;
+    }
+
     console.log('Username:', username);
     console.log('Password:', password);
+
+    router.push('/dashboard');
   };
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      <View style={styles.LoginHead}>
-        <Link href={'/dashboard'}>
-          <Icon name="close" size={25} color="#d0d0d0" />
-        </Link>
-      </View>
       <View style={styles.LoginS}>
         <Text style={styles.LoginText}>Login</Text>
         <View style={styles.inputContainer}>
@@ -48,17 +51,13 @@ const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
     alignItems: 'center',
-    marginTop: '5%',
+    justifyContent: 'center',
     padding: 16,
+    backgroundColor: '#f8f8f8',
   },
   LoginS: {
-    verticalAlign:'middle',
     alignItems: 'center',
-    // marginTop: '5%',
-    paddingTop: '30%',
-    // paddingBottom: '50%',
     alignSelf: 'stretch',
-
   },
   LoginHead: {
     alignItems: 'center',
@@ -66,13 +65,13 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     paddingLeft: 15,
     paddingRight: 15,
-    marginBottom: 25,
     width: '100%',
   },
   LoginText: {
     color: 'black',
     fontSize: 34,
     fontWeight: 'bold',
+    marginBottom: 20,
   },
   inputContainer: {
     width: '100%',
