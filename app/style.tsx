@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   inputContainer: {
-    flex: 1,
+    // flex: 1,
   },
   input: {
     backgroundColor: '#f0f0f0',
