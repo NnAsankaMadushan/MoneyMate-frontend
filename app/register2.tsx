@@ -36,48 +36,50 @@ export default function Register2() {
           <Text>Next</Text>
         </Link>
       </View>
-      <TextInput
-        style={styles.detailsR}
-        placeholder="NIC"
-        value={nic}
-        onChangeText={setNic}
-      />
-      <TextInput
-        style={styles.detailsR}
-        placeholder="Job title"
-        value={jobTitle}
-        onChangeText={setJobTitle}
-      />
-      <TextInput
-        style={styles.detailsR}
-        placeholder="Employer Name"
-        value={employerName}
-        onChangeText={setEmployerName}
-      />
-      <Text style={styles.detailsR}>Upload a Photo of ID</Text>
-      <View style={styles.uploadContainer}>
-        <TouchableOpacity style={styles.uploadBox} onPress={() => pickImage(setFrontId)}>
-          {frontId ? (
-            <Image source={{ uri: frontId }} style={styles.image} />
+      <View style={styles.InputR}>
+        <TextInput
+          style={styles.detailsR}
+          placeholder="NIC"
+          value={nic}
+          onChangeText={setNic}
+        />
+        <TextInput
+          style={styles.detailsR}
+          placeholder="Job title"
+          value={jobTitle}
+          onChangeText={setJobTitle}
+        />
+        <TextInput
+          style={styles.detailsR}
+          placeholder="Employer Name"
+          value={employerName}
+          onChangeText={setEmployerName}
+        />
+        <Text style={styles.detailsR}>Upload a Photo of ID</Text>
+        <View style={styles.uploadContainer}>
+          <TouchableOpacity style={styles.uploadBox} onPress={() => pickImage(setFrontId)}>
+            {frontId ? (
+              <Image source={{ uri: frontId }} style={styles.image} />
+            ) : (
+              <Text style={styles.uploadText}>Front</Text>
+            )}
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.uploadBox} onPress={() => pickImage(setBackId)}>
+            {backId ? (
+              <Image source={{ uri: backId }} style={styles.image} />
+            ) : (
+              <Text style={styles.uploadText}>Back</Text>
+            )}
+          </TouchableOpacity>
+        </View>
+        <TouchableOpacity style={styles.shopUpload} onPress={() => pickImage(setShopImage)}>
+          {shopImage ? (
+            <Image source={{ uri: shopImage }} style={styles.image} />
           ) : (
-            <Text style={styles.uploadText}>Front</Text>
-          )}
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.uploadBox} onPress={() => pickImage(setBackId)}>
-          {backId ? (
-            <Image source={{ uri: backId }} style={styles.image} />
-          ) : (
-            <Text style={styles.uploadText}>Back</Text>
+            <Text style={styles.uploadText}>Shop image upload</Text>
           )}
         </TouchableOpacity>
       </View>
-      <TouchableOpacity style={styles.shopUpload} onPress={() => pickImage(setShopImage)}>
-        {shopImage ? (
-          <Image source={{ uri: shopImage }} style={styles.image} />
-        ) : (
-          <Text style={styles.uploadText}>Shop image upload</Text>
-        )}
-      </TouchableOpacity>
       <TouchableOpacity style={styles.button} onPress={() => {}}>
         <Text style={styles.buttonText}>Register</Text>
       </TouchableOpacity>
@@ -187,4 +189,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
   },
+  InputR:{
+    flex:1
+  }
 });
