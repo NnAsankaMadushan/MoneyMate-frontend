@@ -31,7 +31,7 @@ const RootLayout = () => {
             </TouchableOpacity>
 
             <TouchableOpacity style={styles.navItem}>
-              <Link href={'/dashboard'}>
+              <Link href={'/clients'}>
                 <Icon name="users" size={30} color="#5cb075" style={styles.icons} />
               </Link>
               <Text style={styles.naviText}>Clients</Text>
