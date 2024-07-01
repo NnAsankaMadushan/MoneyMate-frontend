@@ -40,8 +40,10 @@ const Dashboard = () => {
             </Link>
         </TouchableOpacity>
         <TouchableOpacity style={styles.menuItem}>
-          <Icon name="users" size={30} color="#5cb075" style={styles.icons} />
-          <Text style={styles.menuText}>Clients</Text>
+          <Link href={'/clients'}>
+            <Icon name="users" size={30} color="#5cb075" style={styles.icons} />
+            <Text style={styles.menuText}>Clients</Text>
+          </Link>
         </TouchableOpacity>
         <TouchableOpacity style={styles.menuItem}>
           <Icon name="user" size={30} color="#5cb075" style={styles.icons} />

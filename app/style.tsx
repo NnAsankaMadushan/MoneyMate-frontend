@@ -47,6 +47,57 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
   },
+  searchInput: {
+    height: 40,
+    borderColor: '#a0a0a0',
+    borderWidth: 1,
+    borderRadius: 35,
+    paddingLeft: 20,
+    marginBottom: 16,
+    backgroundColor:'#f0f0f0',
+    color:'#a0a0a0',
+  },
+  sectionHeader: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginVertical: 8,
+  },
+  clientsContainer:{
+    marginTop:10
+  },
+  topClientsHeader:{
+    fontSize:25,
+    color:'#5cb075',
+    fontWeight:400,
+    marginBottom:10
+  },
+  clientCard: {
+    marginRight: 16,
+    // alignItems: 'center',
+  },
+  clientImage: {
+    width: 150,
+    height: 150,
+    backgroundColor: '#eee',
+    borderRadius: 8,
+    marginBottom: 8,
+  },
+  clientName: {
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+  clientLocation: {
+    fontSize: 14,
+    color: 'gray',
+  },
+  clientPrice: {
+    marginTop:10,
+    fontSize: 14,
+    fontWeight: '500',
+  },
+  topClientsContainer:{
+    marginBottom:25,
+  }
 });
 
 export default styles;
