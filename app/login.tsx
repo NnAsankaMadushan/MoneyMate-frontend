@@ -38,9 +38,13 @@ const Login = () => {
             onChangeText={setPassword}
             secureTextEntry
           />
-          <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
-            <Text style={styles.loginButtonText}>Login</Text>
-          </TouchableOpacity>
+          <Link href={'/dashboard'} style={styles.loginButtonL}>
+          <View style={styles.loginButton}>
+              <TouchableOpacity onPress={handleLogin}>
+                <Text style={styles.loginButtonText}>Login</Text>
+              </TouchableOpacity>
+          </View>
+          </Link>
         </View>
       </View>
     </ScrollView>
@@ -92,6 +96,9 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     marginVertical: 16,
     alignItems: 'center',
+    width: '100%',
+  },
+  loginButtonL:{
     width: '100%',
   },
   loginButtonText: {
