@@ -6,6 +6,11 @@ import { Link } from 'expo-router';
 
 const Makepayment1 = () => {
   const [LoanType,setLoanType] = useState('');
+  const [LoanID,setLoanID] = useState('');
+  const [Total,setTotal] = useState('');
+  const [PreviousPayment,setPreviousPayment] = useState('');
+  const [TotalPayment,setTotalPayment] = useState('');
+  const [CreditBalance,setCreditBalance] = useState('');
   return (
     <View style={styles.container}>
       <View style={styles.HeadStyle}>
@@ -30,8 +35,8 @@ const Makepayment1 = () => {
         <TextInput
           style={styles.input}
           placeholder="Loan ID"
-          value={LoanType}
-          onChangeText={setLoanType}
+          value={LoanID}
+          onChangeText={setLoanID}
           editable={true}
         />
       </View>
@@ -39,8 +44,8 @@ const Makepayment1 = () => {
         <TextInput
           style={styles.input}
           placeholder="Total"
-          value={LoanType}
-          onChangeText={setLoanType}
+          value={Total}
+          onChangeText={setTotal}
           editable={true}
         />
       </View>
@@ -48,8 +53,8 @@ const Makepayment1 = () => {
         <TextInput
           style={styles.input}
           placeholder="Previous Payement"
-          value={LoanType}
-          onChangeText={setLoanType}
+          value={PreviousPayment}
+          onChangeText={setPreviousPayment}
           editable={true}
         />
       </View>
@@ -57,8 +62,8 @@ const Makepayment1 = () => {
         <TextInput
           style={styles.input}
           placeholder="Total Payement"
-          value={LoanType}
-          onChangeText={setLoanType}
+          value={TotalPayment}
+          onChangeText={setTotalPayment}
           editable={true}
         />
       </View>
@@ -66,8 +71,8 @@ const Makepayment1 = () => {
         <TextInput
           style={styles.input}
           placeholder="Credit Balance"
-          value={LoanType}
-          onChangeText={setLoanType}
+          value={CreditBalance}
+          onChangeText={setCreditBalance}
           editable={true}
         />
       </View>
