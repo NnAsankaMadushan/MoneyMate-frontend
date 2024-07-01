@@ -1,4 +1,4 @@
-import { View, Text,TextInput} from 'react-native'
+import { View, Text,TextInput,TouchableOpacity} from 'react-native'
 import React, { useState } from 'react'
 import styles from './style';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -15,7 +15,7 @@ const Makepayment1 = () => {
     <View style={styles.container}>
       <View style={styles.HeadStyle}>
         <Link href={'/makepayment'}>
-          <Icon name="close" size={25} color="#d0d0d0" />
+          <Text style={styles.nextText}>Back</Text>
         </Link>
         <Text style={styles.HeadStyleText}>Make Payment</Text>
         <Link href={'/makepayment1'} style={styles.nextText}>
@@ -23,6 +23,7 @@ const Makepayment1 = () => {
             </Link>
       </View>
       <View style={styles.inputContainer}>
+      <View>
         <TextInput
           style={styles.input}
           placeholder="Loan Type"
@@ -31,7 +32,7 @@ const Makepayment1 = () => {
           editable={true}
         />
       </View>
-      <View style={styles.inputContainer}>
+      <View>
         <TextInput
           style={styles.input}
           placeholder="Loan ID"
@@ -40,7 +41,7 @@ const Makepayment1 = () => {
           editable={true}
         />
       </View>
-      <View style={styles.inputContainer}>
+      <View>
         <TextInput
           style={styles.input}
           placeholder="Total"
@@ -49,7 +50,7 @@ const Makepayment1 = () => {
           editable={true}
         />
       </View>
-      <View style={styles.inputContainer}>
+      <View>
         <TextInput
           style={styles.input}
           placeholder="Previous Payement"
@@ -58,7 +59,7 @@ const Makepayment1 = () => {
           editable={true}
         />
       </View>
-      <View style={styles.inputContainer}>
+      <View>
         <TextInput
           style={styles.input}
           placeholder="Total Payement"
@@ -67,7 +68,7 @@ const Makepayment1 = () => {
           editable={true}
         />
       </View>
-      <View style={styles.inputContainer}>
+      <View>
         <TextInput
           style={styles.input}
           placeholder="Credit Balance"
@@ -76,6 +77,10 @@ const Makepayment1 = () => {
           editable={true}
         />
       </View>
+      </View>
+      <TouchableOpacity style={styles.button} onPress={() => {}}>
+        <Text style={styles.buttonText}>Submit</Text>
+      </TouchableOpacity>
     </View>
   )
 }

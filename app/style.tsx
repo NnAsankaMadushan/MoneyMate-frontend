@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   inputContainer: {
-    // flex: 1,
+    flex: 1,
   },
   input: {
     backgroundColor: '#f0f0f0',
@@ -32,6 +32,20 @@ const styles = StyleSheet.create({
     fontSize:18,
     color:'#5cb075',
     fontWeight:500
+  },
+  button: {
+    backgroundColor: '#5cb075',
+    padding: 15,
+    borderRadius: 25,
+    alignItems: 'center',
+    marginVertical: 16,
+    justifyContent: 'flex-end',
+    
+  },
+  buttonText: {
+    color: '#fff',
+    fontSize: 18,
+    fontWeight: 'bold',
   },
 });
 
