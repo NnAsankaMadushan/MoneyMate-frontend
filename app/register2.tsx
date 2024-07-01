@@ -29,7 +29,7 @@ export default function Register2() {
     <View style={styles.container}>
       <View style={styles.headerReg}>
         <Link href={'/dashboard'}>
-            <Icon name="close" size={25} color="#d0d0d0" />
+          <Text style={styles.nextText}>Back</Text>
         </Link>
         <Text style={styles.headerText}>Register</Text>
         <Link href={'/register2'} style={styles.nextText}>
