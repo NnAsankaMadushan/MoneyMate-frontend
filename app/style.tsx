@@ -92,6 +92,7 @@ const styles = StyleSheet.create({
   },
   clientPrice: {
     marginTop:10,
+    marginBottom:20,
     fontSize: 14,
     fontWeight: '500',
   },
