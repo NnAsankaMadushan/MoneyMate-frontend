@@ -17,7 +17,7 @@ const RootLayout = () => {
         <View style={styles.navigationBar}>
           <View style={styles.navi}>
             <TouchableOpacity style={styles.navItem}>
-              <Link href={'/'}>
+              <Link href={'/dashboard'}>
                 <Icon name="home" size={30} color="#5cb075" style={styles.icons} />
               </Link>
               <Text style={styles.naviText}>Home</Text>

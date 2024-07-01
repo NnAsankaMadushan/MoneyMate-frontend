@@ -18,7 +18,7 @@ const Dashboard = () => {
       
       <View style={styles.menuContainer}>
         <TouchableOpacity style={styles.menuItem}>
-          <Link href={'register'}>
+          <Link href={'/register'}>
             <Icon name="user-plus" size={30} color="#5cb075" style={styles.icons} />
             <Text style={styles.menuText}>Create User</Text>
           </Link>
@@ -48,8 +48,10 @@ const Dashboard = () => {
           </Link>
         </TouchableOpacity>
         <TouchableOpacity style={styles.menuItem}>
-          <Icon name="user" size={30} color="#5cb075" style={styles.icons} />
-          <Text style={styles.menuText}>Profile</Text>
+          <Link href={'/profile'}>
+            <Icon name="user" size={30} color="#5cb075" style={styles.icons} />
+            <Text style={styles.menuText}>Profile</Text>
+          </Link>
         </TouchableOpacity>
       </View>
     </ScrollView>
