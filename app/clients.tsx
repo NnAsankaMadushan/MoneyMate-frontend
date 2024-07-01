@@ -1,6 +1,8 @@
 import React from 'react';
 import { View, Text, TextInput, FlatList, StyleSheet } from 'react-native';
 import styles from './style';
+import { Link} from 'expo-router';
+
 const clientsData = [
   { id: '1', name: 'Siripala', location: 'Rathnapura', price: 'Rs.19.99' },
   { id: '2', name: 'Ranathunga', location: 'Galle', price: 'Rs.19.99' },
@@ -14,7 +16,9 @@ const Clients = () => {
   return (
     <View style={styles.container}>
       <View style={styles.HeadStyle}>
-        <Text style={styles.nextText}>Back</Text>
+        <Link href={'/dashboard'}>
+          <Text style={styles.nextText}>Back</Text>
+        </Link>
         <Text style={styles.HeadStyleText}>Clients</Text>
         <Text></Text>
       </View>

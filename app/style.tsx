@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
   },
   searchInput: {
     height: 40,
-    borderColor: '#a0a0a0',
+    borderColor: '#5cb075',
     borderWidth: 1,
     borderRadius: 35,
     paddingLeft: 20,
