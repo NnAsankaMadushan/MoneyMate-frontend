@@ -1,15 +1,14 @@
 import React from 'react';
-import { Link, Slot, useRouter } from 'expo-router';
+import { Link, Slot, usePathname } from 'expo-router';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 const RootLayout = () => {
-  const router = useRouter();
-  const currentRoute = router.asPath;
+  const pathname = usePathname();
 
-  const hideNavigationBarRoutes = ['/login'];
+  const hideNavigationBarRoutes = ['/','/login'];
 
-  const shouldHideNavigationBar = hideNavigationBarRoutes.includes(currentRoute);
+  const shouldHideNavigationBar = hideNavigationBarRoutes.includes(pathname);
 
   return (
     <View style={styles.container}>
