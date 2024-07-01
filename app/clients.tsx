@@ -7,9 +7,9 @@ const clientsData = [
   { id: '1', name: 'Siripala', location: 'Rathnapura', price: 'Rs.19.99' },
   { id: '2', name: 'Ranathunga', location: 'Galle', price: 'Rs.19.99' },
   { id: '3', name: 'Kapila', location: 'Anuradhapura', price: 'Rs.19.99' },
-  { id: '1', name: 'Siripala', location: 'Rathnapura', price: 'Rs.19.99' },
-  { id: '2', name: 'Ranathunga', location: 'Galle', price: 'Rs.19.99' },
-  { id: '3', name: 'Kapila', location: 'Anuradhapura', price: 'Rs.19.99' },
+  { id: '4', name: 'Siripala', location: 'Rathnapura', price: 'Rs.19.99' },
+  { id: '5', name: 'Ranathunga', location: 'Galle', price: 'Rs.19.99' },
+  { id: '6', name: 'Kapila', location: 'Anuradhapura', price: 'Rs.19.99' },
 ];
 
 const Clients = () => {

@@ -18,8 +18,10 @@ const Dashboard = () => {
       
       <View style={styles.menuContainer}>
         <TouchableOpacity style={styles.menuItem}>
-          <Icon name="user-plus" size={30} color="#5cb075" style={styles.icons} />
-          <Text style={styles.menuText}>Create User</Text>
+          <Link href={'register'}>
+            <Icon name="user-plus" size={30} color="#5cb075" style={styles.icons} />
+            <Text style={styles.menuText}>Create User</Text>
+          </Link>
         </TouchableOpacity>
         <TouchableOpacity style={styles.menuItem}>
           <Link href={'/reports'}>
