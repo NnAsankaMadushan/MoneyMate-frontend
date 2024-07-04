@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, TextInput, FlatList, StyleSheet } from 'react-native';
 import styles from './style';
-import { Link} from 'expo-router';
+import { Link } from 'expo-router';
 
 const clientsData = [
   { id: '1', name: 'Siripala', location: 'Rathnapura', price: 'Rs.19.99' },
@@ -13,6 +13,12 @@ const clientsData = [
 ];
 
 const Clients = () => {
+  const [searchQuery, setSearchQuery] = useState('');
+
+  const filteredClients = clientsData.filter(client =>
+    client.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
     <View style={styles.container}>
       <View style={styles.HeadStyle}>
@@ -25,12 +31,14 @@ const Clients = () => {
       <TextInput
         style={styles.searchInput}
         placeholder="Search here..."
+        value={searchQuery}
+        onChangeText={setSearchQuery}
       />
       <View style={styles.clientsContainer}>
         <Text style={styles.topClientsHeader}>Top Clients</Text>
         <View style={styles.topClientsContainer}>
           <FlatList
-            data={clientsData}
+            data={filteredClients}
             renderItem={({ item }) => (
               <View style={styles.clientCard}>
                 <View style={styles.clientImage} />
@@ -45,7 +53,7 @@ const Clients = () => {
         </View>
         <Text style={styles.topClientsHeader}>New</Text>
         <FlatList
-          data={clientsData}
+          data={filteredClients}
           renderItem={({ item }) => (
             <View style={styles.clientCard}>
               <View style={styles.clientImage} />
