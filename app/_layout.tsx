@@ -18,35 +18,35 @@ const RootLayout = () => {
           <View style={styles.navi}>
             <TouchableOpacity style={styles.navItem}>
               <Link href={'/dashboard'}>
-                <Icon name="home" size={30} color="#5cb075" style={styles.icons} />
+                <Icon name="home" size={25} color="#5cb075" style={styles.icons} />
               </Link>
               <Text style={styles.naviText}>Home</Text>
             </TouchableOpacity>
 
             <TouchableOpacity style={styles.navItem}>
               <Link href={'/register'}>
-                <Icon name="user-plus" size={30} color="#5cb075" style={styles.icons} />
+                <Icon name="user-plus" size={25} color="#5cb075" style={styles.icons} />
               </Link>
               <Text style={styles.naviText}>Register</Text>
             </TouchableOpacity>
 
             <TouchableOpacity style={styles.navItem}>
               <Link href={'/clients'}>
-                <Icon name="users" size={30} color="#5cb075" style={styles.icons} />
+                <Icon name="users" size={25} color="#5cb075" style={styles.icons} />
               </Link>
               <Text style={styles.naviText}>Clients</Text>
             </TouchableOpacity>
 
             <TouchableOpacity style={styles.navItem}>
               <Link href={'/reports'}>
-                <Icon name="file" size={30} color="#5cb075" style={styles.icons} />
+                <Icon name="file" size={25} color="#5cb075" style={styles.icons} />
               </Link>
               <Text style={styles.naviText}>Reports</Text>
             </TouchableOpacity>
 
             <TouchableOpacity style={styles.navItem}>
               <Link href={'/profile'}>
-                <Icon name="user" size={30} color="#5cb075" style={styles.icons} />
+                <Icon name="user" size={25} color="#5cb075" style={styles.icons} />
               </Link>
               <Text style={styles.naviText}>Profile</Text>
             </TouchableOpacity>
