@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { View, TextInput, Button, Image, TouchableOpacity, Text, StyleSheet } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
-import {Link} from 'expo-router';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import { Link } from 'expo-router';
 
 export default function Register2() {
   const [nic, setNic] = useState('');
@@ -21,7 +20,7 @@ export default function Register2() {
     });
 
     if (!result.canceled) {
-      setImage(result.uri);
+      setImage(result.assets[0].uri);  // Access the URI properly
     }
   };
 
@@ -123,10 +122,9 @@ const styles = StyleSheet.create({
   },
   uploadText: {
     color: '#d3d3d3',
-    fontSize:18
+    fontSize:18,
   },
   shopUpload: {
-    // height: 100,
     margin: 2,
     padding: 10,
     borderRadius: 10,
@@ -137,6 +135,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 20,
+    height:100
   },
   image: {
     width: '100%',
