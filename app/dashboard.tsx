@@ -19,37 +19,37 @@ const Dashboard = () => {
       <View style={styles.menuContainer}>
         <TouchableOpacity style={styles.menuItem}>
           <Link href={'/register'}>
-            <Icon name="user-plus" size={30} color="#5cb075" style={styles.icons} />
+            <Icon name="user-plus" size={20} color="#5cb075" style={styles.icons} />
             <Text style={styles.menuText}>Create User</Text>
           </Link>
         </TouchableOpacity>
         <TouchableOpacity style={styles.menuItem}>
           <Link href={'/reports'}>
-            <Icon name="line-chart" size={30} color="#5cb075" style={styles.icons} />
+            <Icon name="line-chart" size={20} color="#5cb075" style={styles.icons} />
             <Text style={styles.menuText}>Reports</Text>
           </Link>
         </TouchableOpacity>
         <TouchableOpacity style={styles.menuItem}>
           <Link href={'/makepayment'}>
-            <Icon name="credit-card" size={30} color="#5cb075" style={styles.icons} />
+            <Icon name="credit-card" size={20} color="#5cb075" style={styles.icons} />
             <Text style={styles.menuText}>Make Payments</Text>
           </Link>
         </TouchableOpacity>
         <TouchableOpacity style={styles.menuItem}>
           <Link href={'/settings'}>
-            <Icon name="cogs" size={30} color="#5cb075" style={styles.icons} />
+            <Icon name="cogs" size={20} color="#5cb075" style={styles.icons} />
             <Text style={styles.menuText}>Settings</Text>
             </Link>
         </TouchableOpacity>
         <TouchableOpacity style={styles.menuItem}>
           <Link href={'/clients'}>
-            <Icon name="users" size={30} color="#5cb075" style={styles.icons} />
+            <Icon name="users" size={20} color="#5cb075" style={styles.icons} />
             <Text style={styles.menuText}>Clients</Text>
           </Link>
         </TouchableOpacity>
         <TouchableOpacity style={styles.menuItem}>
           <Link href={'/profile'}>
-            <Icon name="user" size={30} color="#5cb075" style={styles.icons} />
+            <Icon name="user" size={20} color="#5cb075" style={styles.icons} />
             <Text style={styles.menuText}>Profile</Text>
           </Link>
         </TouchableOpacity>
