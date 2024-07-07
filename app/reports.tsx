@@ -33,10 +33,10 @@ const Reports = () => {
           <Text style={[styles.inactiveTabText, activeTab === 'Daily Reports' && styles.tabText]}>Daily Reports</Text>
         </TouchableOpacity>
         <TouchableOpacity 
-          style={[styles.tab, activeTab === 'Monthly reports' && styles.activeTab]} 
-          onPress={() => setActiveTab('Monthly reports')}
+          style={[styles.tab, activeTab === 'Monthly Reports' && styles.activeTab]} 
+          onPress={() => setActiveTab('Monthly Reports')}
         >
-          <Text style={[styles.inactiveTabText, activeTab === 'Monthly reports' && styles.tabText]}>Monthly reports</Text>
+          <Text style={[styles.inactiveTabText, activeTab === 'Monthly Reports' && styles.tabText]}>Monthly Reports</Text>
         </TouchableOpacity>
       </View>
       <ScrollView>
@@ -58,12 +58,12 @@ const Reports = () => {
             )}
           />
         )}
-        {activeTab === 'Monthly reports' && (          
+        {activeTab === 'Monthly Reports' && (
           <FlatList
             data={MonthlyReports}
             keyExtractor={(item) => item.id}
             renderItem={({ item }) => (
-              <View style={styles.loanItem}>
+              <View style={styles.loanItemM}>
                 <View style={styles.loanHeader}>
                   <View style={styles.details}>
                     <Icon name="file" size={20} color="#5cb075" />
@@ -101,7 +101,7 @@ const styles = StyleSheet.create({
   reportPhoto: {
     alignItems: 'center',
     marginVertical: -90,
-    marginBottom:0,
+    marginBottom: 0,
   },
   reportImage: {
     width: 180,
@@ -142,6 +142,12 @@ const styles = StyleSheet.create({
     fontSize: 18,
   },
   loanItem: {
+    padding: 15,
+    borderBottomWidth: 1,
+    borderColor: '#CCCCCC',
+    width: '100%',
+  },
+  loanItemM: {
     padding: 15,
     borderBottomWidth: 1,
     borderColor: '#CCCCCC',

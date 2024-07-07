@@ -116,7 +116,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.1,
     shadowRadius: 2,
     elevation: 2,
-    flexDirection: 'row',   
+    flexDirection: 'row',  
   },
   menuText: {
     marginTop: 10,
