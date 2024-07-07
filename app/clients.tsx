@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
-import { View, Text, TextInput, FlatList, StyleSheet, ScrollView } from 'react-native';
-import styles from './style';
+import React, { useState, useEffect } from 'react';
+import { View, Text, TextInput, FlatList, StyleSheet, ScrollView, Image } from 'react-native';
 import { Link } from 'expo-router';
+import styles from './style';
 
 const clientsData = [
-  { id: '1', name: 'Siripala', location: 'Rathnapura', price: 'Rs.19.99' },
-  { id: '2', name: 'Ranathunga', location: 'Galle', price: 'Rs.19.99' },
-  { id: '3', name: 'Kapila', location: 'Anuradhapura', price: 'Rs.19.99' },
-  { id: '4', name: 'Siripala', location: 'Rathnapura', price: 'Rs.19.99' },
-  { id: '5', name: 'Ranathunga', location: 'Galle', price: 'Rs.19.99' },
-  { id: '6', name: 'Kapila', location: 'Anuradhapura', price: 'Rs.19.99' },
+  { id: '1', name: 'Siripala', location: 'Rathnapura', price: 'Rs.19.99',"imageUrl": "https://example.com/path/to/profile-picture-1.jpg" },
+  { id: '2', name: 'Ranathunga', location: 'Galle', price: 'Rs.19.99',"imageUrl": "https://example.com/path/to/profile-picture-1.jpg" },
+  { id: '3', name: 'Kapila', location: 'Anuradhapura', price: 'Rs.19.99',"imageUrl": "https://example.com/path/to/profile-picture-1.jpg" },
+  { id: '4', name: 'Siripala', location: 'Rathnapura', price: 'Rs.19.99',"imageUrl": "https://example.com/path/to/profile-picture-1.jpg" },
+  { id: '5', name: 'Ranathunga', location: 'Galle', price: 'Rs.19.99',"imageUrl": "https://example.com/path/to/profile-picture-1.jpg" },
+  { id: '6', name: 'Kapila', location: 'Anuradhapura', price: 'Rs.19.99',"imageUrl": "https://example.com/path/to/profile-picture-1.jpg" },
 ];
 
 const Clients = () => {
@@ -63,7 +63,7 @@ const Clients = () => {
               data={filteredClients}
               renderItem={({ item }) => (
                 <View style={styles.clientCard}>
-                  <View style={styles.clientImage} />
+                  <Image source={{ uri: item.imageUrl }} style={styles.clientImage} />
                   <Text style={styles.clientName}>{item.name}</Text>
                   <Text style={styles.clientLocation}>{item.location}</Text>
                   <Text style={styles.clientPrice}>{item.price}</Text>
