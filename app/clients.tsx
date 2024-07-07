@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, FlatList, StyleSheet } from 'react-native';
+import { View, Text, TextInput, FlatList, StyleSheet, ScrollView } from 'react-native';
 import styles from './style';
 import { Link } from 'expo-router';
 
@@ -34,38 +34,48 @@ const Clients = () => {
         value={searchQuery}
         onChangeText={setSearchQuery}
       />
-      <View style={styles.clientsContainer}>
-        <Text style={styles.topClientsHeader}>Top Clients</Text>
-        <View style={styles.topClientsContainer}>
-          <FlatList
-            data={filteredClients}
-            renderItem={({ item }) => (
-              <View style={styles.clientCard}>
-                <View style={styles.clientImage} />
-                <Text style={styles.clientName}>{item.name}</Text>
-                <Text style={styles.clientLocation}>{item.location}</Text>
-                <Text style={styles.clientPrice}>{item.price}</Text>
-              </View>
-            )}
-            keyExtractor={item => item.id}
-            horizontal
-          />
+      <ScrollView
+        style={styles.customScrollBar}
+        contentContainerStyle={styles.customScrollBarContent}
+        indicatorStyle="white" // Adjust as needed
+      >
+        <View style={styles.clientsContainer}>
+          <Text style={styles.topClientsHeader}>Top Clients</Text>
+          <View style={styles.listContainer}>
+            <FlatList
+              data={filteredClients}
+              renderItem={({ item }) => (
+                <View style={styles.clientCard}>
+                  <View style={styles.clientImage} />
+                  <Text style={styles.clientName}>{item.name}</Text>
+                  <Text style={styles.clientLocation}>{item.location}</Text>
+                  <Text style={styles.clientPrice}>{item.price}</Text>
+                </View>
+              )}
+              keyExtractor={item => item.id}
+              horizontal
+              showsHorizontalScrollIndicator={false}
+            />
+          </View>
+          <Text style={styles.topClientsHeader}>New</Text>
+          <View style={styles.listContainer}>
+            <FlatList
+              data={filteredClients}
+              renderItem={({ item }) => (
+                <View style={styles.clientCard}>
+                  <View style={styles.clientImage} />
+                  <Text style={styles.clientName}>{item.name}</Text>
+                  <Text style={styles.clientLocation}>{item.location}</Text>
+                  <Text style={styles.clientPrice}>{item.price}</Text>
+                </View>
+              )}
+              keyExtractor={item => item.id}
+              horizontal
+              showsHorizontalScrollIndicator={false}
+            />
+          </View>
         </View>
-        <Text style={styles.topClientsHeader}>New</Text>
-        <FlatList
-          data={filteredClients}
-          renderItem={({ item }) => (
-            <View style={styles.clientCard}>
-              <View style={styles.clientImage} />
-              <Text style={styles.clientName}>{item.name}</Text>
-              <Text style={styles.clientLocation}>{item.location}</Text>
-              <Text style={styles.clientPrice}>{item.price}</Text>
-            </View>
-          )}
-          keyExtractor={item => item.id}
-          horizontal
-        />
-      </View>
+      </ScrollView>
     </View>
   );
 };

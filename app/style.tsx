@@ -3,8 +3,10 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 16,
+    padding: 20,
     backgroundColor: '#fff',
+    marginLeft:20,
+    marginRight:20,
   },
   HeadStyle: {
     alignItems: 'center',
@@ -98,7 +100,18 @@ const styles = StyleSheet.create({
   },
   topClientsContainer:{
     marginBottom:25,
-  }
+  },
+  // listContainer: {
+  //   borderBottomColor: '#5cb075',
+  //   borderBottomWidth: 2,
+  //   marginBottom: 15,
+  // },
+  customScrollBar: {
+    overflow: 'hidden',
+  },
+  customScrollBarContent: {
+    paddingRight: 10,
+  },
 });
 
 export default styles;
