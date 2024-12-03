@@ -31,6 +31,10 @@ const Login = () => {
           style={styles.shape}
         />
       </View>
+      <Image
+          source={require('../assets/images/brand.png')} 
+          style={styles.brand}
+        />
         <Text style={styles.LoginText}>Login</Text>
         <View style={styles.inputContainer}>
           <TextInput
@@ -84,10 +88,9 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   LoginText: {
-    color: 'black',
+    color: '#5cb075',
     fontSize: 34,
     fontWeight: 'bold',
-    marginBottom: 20,
   },
   inputContainer: {
     width: '100%',
@@ -123,8 +126,14 @@ const styles = StyleSheet.create({
   log:{
     width:"100%",
     height:"50%",
-    marginRight:-150
+    marginRight:-150,
+    marginBottom:-70
 
+  },
+  brand:{
+    height:110,
+    width:250,
+    marginBottom:50
   }
 });
 
