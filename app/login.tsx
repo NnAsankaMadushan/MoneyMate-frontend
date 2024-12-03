@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Link, useRouter } from 'expo-router';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { View, Text, StyleSheet, TextInput, TouchableOpacity, ScrollView, Alert } from 'react-native';
+import { View, Text, StyleSheet, TextInput, TouchableOpacity, ScrollView, Alert, Image } from 'react-native';
+
 
 const Login = () => {
   const [username, setUsername] = useState('');
@@ -22,7 +23,14 @@ const Login = () => {
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
+     
       <View style={styles.LoginS}>
+      <View>
+      <Image
+          source={require('../assets/images/shape.png')} 
+          style={styles.shape}
+        />
+      </View>
         <Text style={styles.LoginText}>Login</Text>
         <View style={styles.inputContainer}>
           <TextInput
@@ -47,6 +55,10 @@ const Login = () => {
           </Link>
         </View>
       </View>
+      <Image
+          source={require('../assets/images/log.png')} 
+          style={styles.log}
+        />
     </ScrollView>
   );
 };
@@ -95,17 +107,25 @@ const styles = StyleSheet.create({
     padding: 16,
     borderRadius: 8,
     marginVertical: 16,
-    alignItems: 'center',
-    width: '100%',
   },
   loginButtonL:{
-    width: '100%',
+    display:"flex",
   },
   loginButtonText: {
-    fontSize: 16,
+    fontSize: 20,
     color: '#fff',
     fontWeight: 'bold',
   },
+  shape:{
+
+    marginRight:500
+  },
+  log:{
+    width:"100%",
+    height:"50%",
+    marginRight:-150
+
+  }
 });
 
 export default Login;
