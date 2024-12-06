@@ -57,12 +57,13 @@ const Login = () => {
               </TouchableOpacity>
           </View>
           </Link>
+          <Link href={'/register'} style={styles.forget}><Text>Don't have an account?</Text></Link>
         </View>
       </View>
-      <Image
+      {/* <Image
           source={require('../assets/images/log.png')} 
           style={styles.log}
-        />
+        /> */}
     </ScrollView>
   );
 };
@@ -120,8 +121,8 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   shape:{
-
-    marginRight:500
+    marginRight:500,
+    marginTop:-120
   },
   log:{
     width:"100%",
@@ -134,6 +135,13 @@ const styles = StyleSheet.create({
     height:110,
     width:250,
     marginBottom:50
+  },
+  forget:{
+    fontSize:20,
+    marginTop:10,
+    cursor:"pointer",
+    fontWeight:"900",
+    color:"black"
   }
 });
 
