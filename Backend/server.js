@@ -1,42 +1,49 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
-const cors = require('cors');
-require('dotenv').config();
+import express from "express";
+import mongoose from "mongoose";
+import dotenv from "dotenv";
+import User from "./models/User.js"; // Import the User model
+
+dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+app.use(express.json());
 
-// Middleware
-app.use(bodyParser.json());
-app.use(cors());
-
-// MongoDB Connection
-mongoose
-  .connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.log('Connected to MongoDB'))
-  .catch((err) => console.error('Error connecting to MongoDB:', err));
-
-// User Schema and Model
-const userSchema = new mongoose.Schema({
-  username: { type: String, required: true },
-  password: { type: String, required: true },
-});
-const User = mongoose.model('User', userSchema);
-
-// Routes
-app.post('/login', async (req, res) => {
-  const { username, password } = req.body;
+// MongoDB connection
+const connectDB = async () => {
   try {
-    const user = await User.findOne({ username, password });
-    if (user) {
-      return res.json({ success: true, message: 'Login successful!' });
-    }
-    res.status(400).json({ success: false, message: 'Invalid username or password' });
+    await mongoose.connect(process.env.MONGO_URI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
+    console.log("MongoDB connected");
   } catch (error) {
-    res.status(500).json({ success: false, message: 'Server error', error });
+    console.error("DB connection failed:", error);
+    process.exit(1);
+  }
+};
+
+connectDB();
+
+app.use("/", 
+  (req,res)=>{
+    res.send("API is running ....")
+  }
+)
+
+// Route to create a user
+app.post("/api/users", async (req, res) => {
+  const { name, email, password, phoneNumber } = req.body;
+
+  try {
+    const user = new User({ name, email, password, phoneNumber });
+    await user.save(); // Save the user to MongoDB
+    res.status(201).json({ message: "User created successfully", user });
+  } catch (error) {
+    console.error(error);
+    res.status(400).json({ error: error.message });
   }
 });
 
-// Start Server
+// Start the server
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
