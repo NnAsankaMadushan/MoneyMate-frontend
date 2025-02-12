@@ -16,7 +16,7 @@ const Profile = () => {
   ];
 
   const infoP = [
-    { Name: 'Saman', Code: 'USR24001', NicNo: '981071000v', state: 'Public' }
+    { Name: 'Kasuni', Code: 'USR24001', NicNo: '981071000v', state: 'Public' }
   ];
 
   return (

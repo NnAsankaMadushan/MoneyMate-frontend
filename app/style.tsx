@@ -8,6 +8,11 @@ const styles = StyleSheet.create({
     marginLeft:20,
     marginRight:20,
   },
+  scrollContainer: {
+    flexGrow: 1,
+    padding: 20,
+    paddingTop:40,
+  },
   HeadStyle: {
     alignItems: 'center',
     justifyContent: 'space-between',

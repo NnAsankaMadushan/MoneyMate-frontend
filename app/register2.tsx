@@ -32,7 +32,7 @@ export default function Register2() {
           <Text style={styles.nextText}>Back</Text>
         </Link>
         <Text style={styles.headerText}>Register</Text>
-        <Link href={'/register2'} style={styles.nextText}>
+        <Link href={'/dashboard'} style={styles.nextText}>
           <Text>Next</Text>
         </Link>
       </View>
