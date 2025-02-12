@@ -112,6 +112,63 @@ const styles = StyleSheet.create({
   customScrollBarContent: {
     paddingRight: 10,
   },
+ 
+  otpContainer: {
+    flex: 1,
+    padding: 20,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  otpTitle: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 10,
+    color: '#333',
+  },
+  otpDescription: {
+    fontSize: 16,
+    color: '#666',
+    textAlign: 'center',
+    marginBottom: 30,
+  },
+  otpInput: {
+    width: '80%',
+    height: 50,
+    borderWidth: 1,
+    borderColor: '#5cb075',
+    borderRadius: 8,
+    padding: 15,
+    fontSize: 18,
+    textAlign: 'center',
+    marginBottom: 30,
+  },
+  proceedButton: {
+    width: '80%',
+    height: 50,
+    backgroundColor: '#5cb075',
+    borderRadius: 8,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 20,
+  },
+  proceedButtonText: {
+    color: '#fff',
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+  resendContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  resendText: {
+    color: '#666',
+    fontSize: 16,
+  },
+  resendButton: {
+    color: '#5cb075',
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
 });
 
 export default styles;

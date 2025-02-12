@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { View, TextInput, Button, Image, TouchableOpacity, Text, StyleSheet } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 import { Link } from 'expo-router';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 export default function Register2() {
   const [nic, setNic] = useState('');
@@ -61,6 +62,7 @@ export default function Register2() {
               <Image source={{ uri: frontId }} style={styles.image} />
             ) : (
               <Text style={styles.uploadText}>Front</Text>
+              // <Icon name="file-upload" size={24} color="#d3d3d3"/>
             )}
           </TouchableOpacity>
           <TouchableOpacity style={styles.uploadBox} onPress={() => pickImage(setBackId)}>

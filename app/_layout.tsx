@@ -25,7 +25,7 @@ const RootLayout = () => {
   }, []);
 
   const getIconColor = (route) => {
-    return pathname === route ? '#5cb075' : '#000'; // Green for active page, black for others
+    return pathname === route ? '#11bd64' : '#789687'; // Green for active page, black for others
   };
 
   return (

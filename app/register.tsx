@@ -119,7 +119,7 @@ const Register = () => {
                 {touched.age && errors.age && <Text style={styles.error}>{errors.age}</Text>}
 
                 <TouchableOpacity onPress={showDatePicker} style={styles.datePicker}>
-                  <Text style={styles.datePickerText}>
+                  <Text style={styles.detailsR}>
                     {values.dateOfBirth ? values.dateOfBirth : 'Select Date of Birth'}
                   </Text>
                 </TouchableOpacity>

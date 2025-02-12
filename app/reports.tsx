@@ -1,20 +1,41 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, Image, FlatList, TouchableOpacity, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, Image, FlatList, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+
+interface ReportItem {
+  id: string;
+  title: string;
+  description: string;
+  time: string;
+}
 
 const Reports = () => {
   const [activeTab, setActiveTab] = useState('Daily Reports');
 
-  const DailyReports = [
+  const DailyReports: ReportItem[] = [
     { id: '1', title: 'Header', description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.', time: '8m ago' },
     { id: '2', title: 'Header', description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.', time: '8m ago' },
     { id: '3', title: 'Header', description: 'jhgvgv.', time: '8m ago' },
   ];
-  const MonthlyReports = [
+  
+  const MonthlyReports: ReportItem[] = [
     { id: '1', title: 'Header', description: 'hiiiiiiiiiiiiiiiiiiiiiiiiiiiii.', time: '8m ago' },
     { id: '2', title: 'Header', description: 'hiiiiiiiiiiiiiiiiiiiiiiiiiiiii.', time: '8m ago' },
     { id: '3', title: 'Header', description: 'hiiiiiiiiiiiiiiiiiiiiiiiiiiiii.', time: '8m ago' },
   ];
+
+  const renderReportItem = ({ item }: { item: ReportItem }) => (
+    <View style={styles.loanItem}>
+      <View style={styles.loanHeader}>
+        <View style={styles.details}>
+          <Icon name="file" size={20} color="#5cb075" />
+          <Text style={styles.loanTitle}>{item.title}</Text>
+        </View>
+        <Text style={styles.loanTime}>{item.time}</Text>
+      </View>
+      <Text style={styles.loanDescription}>{item.description}</Text>
+    </View>
+  );
 
   return (
     <View style={styles.container}>
@@ -25,66 +46,41 @@ const Reports = () => {
       <View style={styles.reportPhoto}>
         <Image source={require('../components/images/reports.png')} style={styles.reportImage} />
       </View>
-      <View style={styles.tabContainer}>
-        <TouchableOpacity 
-          style={[styles.tab, activeTab === 'Daily Reports' && styles.activeTab]} 
-          onPress={() => setActiveTab('Daily Reports')}
-        >
-          <Text style={[styles.inactiveTabText, activeTab === 'Daily Reports' && styles.tabText]}>Daily Reports</Text>
-        </TouchableOpacity>
-        <TouchableOpacity 
-          style={[styles.tab, activeTab === 'Monthly Reports' && styles.activeTab]} 
-          onPress={() => setActiveTab('Monthly Reports')}
-        >
-          <Text style={[styles.inactiveTabText, activeTab === 'Monthly Reports' && styles.tabText]}>Monthly Reports</Text>
-        </TouchableOpacity>
+
+      <View style={styles.contentContainer}>
+        <View style={styles.tabContainer}>
+          <TouchableOpacity 
+            style={[styles.tab, activeTab === 'Daily Reports' && styles.activeTab]} 
+            onPress={() => setActiveTab('Daily Reports')}
+          >
+            <Text style={[styles.inactiveTabText, activeTab === 'Daily Reports' && styles.tabText]}>Daily Reports</Text>
+          </TouchableOpacity>
+          <TouchableOpacity 
+            style={[styles.tab, activeTab === 'Monthly Reports' && styles.activeTab]} 
+            onPress={() => setActiveTab('Monthly Reports')}
+          >
+            <Text style={[styles.inactiveTabText, activeTab === 'Monthly Reports' && styles.tabText]}>Monthly Reports</Text>
+          </TouchableOpacity>
+        </View>
+
+        <View style={styles.listContainer}>
+          <FlatList<ReportItem>
+            data={activeTab === 'Daily Reports' ? DailyReports : MonthlyReports}
+            renderItem={renderReportItem}
+            keyExtractor={(item) => item.id}
+            showsVerticalScrollIndicator={false}
+            contentContainerStyle={styles.flatListContent}
+          />
+        </View>
       </View>
-      <ScrollView>
-        {activeTab === 'Daily Reports' && (
-          <FlatList
-            data={DailyReports}
-            keyExtractor={(item) => item.id}
-            renderItem={({ item }) => (
-              <View style={styles.loanItem}>
-                <View style={styles.loanHeader}>
-                  <View style={styles.details}>
-                    <Icon name="file" size={20} color="#5cb075" />
-                    <Text style={styles.loanTitle}>{item.title}</Text>
-                  </View>
-                  <Text style={styles.loanTime}>{item.time}</Text>
-                </View>
-                <Text style={styles.loanDescription}>{item.description}</Text>
-              </View>
-            )}
-          />
-        )}
-        {activeTab === 'Monthly Reports' && (
-          <FlatList
-            data={MonthlyReports}
-            keyExtractor={(item) => item.id}
-            renderItem={({ item }) => (
-              <View style={styles.loanItemM}>
-                <View style={styles.loanHeader}>
-                  <View style={styles.details}>
-                    <Icon name="file" size={20} color="#5cb075" />
-                    <Text style={styles.loanTitle}>{item.title}</Text>
-                  </View>
-                  <Text style={styles.loanTime}>{item.time}</Text>
-                </View>
-                <Text style={styles.loanDescription}>{item.description}</Text>
-              </View>
-            )}
-          />
-        )}
-      </ScrollView>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    flexGrow: 1,
-    alignItems: 'center',
+    flex: 1,
+    backgroundColor: '#fff',
   },
   header: {
     width: '100%',
@@ -100,17 +96,20 @@ const styles = StyleSheet.create({
   },
   reportPhoto: {
     alignItems: 'center',
-    marginVertical: -90,
-    marginBottom: 0,
+    marginTop: -90,
+    marginBottom: 20,
   },
   reportImage: {
     width: 180,
     height: 180,
     borderRadius: 90,
-    marginBottom: 10,
-    borderColor: '#ffffff', 
-    borderWidth: 6, 
-    backgroundColor:'#f7f7f7',
+    borderColor: '#ffffff',
+    borderWidth: 6,
+    backgroundColor: '#f7f7f7',
+  },
+  contentContainer: {
+    flex: 1,
+    paddingHorizontal: 15,
   },
   tabContainer: {
     flexDirection: 'row',
@@ -118,7 +117,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     borderRadius: 40,
     padding: 10,
-    alignSelf: 'stretch',
+    marginBottom: 15,
   },
   tab: {
     flex: 1,
@@ -141,21 +140,26 @@ const styles = StyleSheet.create({
     color: '#4CAF50',
     fontSize: 18,
   },
+  listContainer: {
+    flex: 1,
+  },
+  flatListContent: {
+    paddingBottom: 20,
+  },
   loanItem: {
     padding: 15,
     borderBottomWidth: 1,
     borderColor: '#CCCCCC',
-    width: '100%',
-  },
-  loanItemM: {
-    padding: 15,
-    borderBottomWidth: 1,
-    borderColor: '#CCCCCC',
-    width: '100%',
+    backgroundColor: '#fff',
   },
   loanHeader: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  details: {
+    flexDirection: 'row',
+    alignItems: 'center',
   },
   loanTitle: {
     fontSize: 18,
@@ -171,9 +175,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: '#555555',
     marginLeft: 25,
-  },
-  details: {
-    flexDirection: 'row',
   },
 });
 

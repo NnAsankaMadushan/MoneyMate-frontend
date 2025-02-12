@@ -18,7 +18,7 @@ const Makepayment1 = () => {
           <Text style={styles.nextText}>Back</Text>
         </Link>
         <Text style={styles.HeadStyleText}>Make Payment</Text>
-        <Link href={'/makepayment1'} style={styles.nextText}>
+        <Link href={'/otp-verification'} style={styles.nextText}>
               <Text>Next</Text>
             </Link>
       </View>
