@@ -10,13 +10,13 @@ const Profile = () => {
   const [activeTab, setActiveTab] = useState('Loan History');
 
   const loanHistory = [
-    { id: '1', title: 'Header', description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.', time: '8m ago' },
-    { id: '2', title: 'Header', description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.', time: '8m ago' },
-    { id: '3', title: 'Header', description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.', time: '8m ago' },
-  ];
+    { id: '1', title: 'Personal Loan Approved', description: 'Your personal loan of $5,000 has been approved and disbursed.', time: '2h ago' },
+    { id: '2', title: 'Loan EMI Paid', description: 'Monthly EMI of $350 for your home loan has been successfully deducted.', time: '1d ago' },
+    { id: '3', title: 'Auto Loan Due Reminder', description: 'Your auto loan payment of $250 is due in 5 days.', time: '3d ago' },
+  ];  
 
   const infoP = [
-    { Name: 'Kasuni', Code: 'USR24001', NicNo: '981071000v', state: 'Public' }
+    { Name: 'Asanka', Code: 'USR24001', NicNo: '981071000v', state: 'Public' }
   ];
 
   return (
@@ -30,7 +30,7 @@ const Profile = () => {
         <View style={styles.profileContainer}>
           <Image source={require('../components/images/profile.png')} style={styles.profileImage} />
           <View style={styles.infoText}>
-            <Text style={styles.userName}>Kasuni Rumesha</Text>
+            <Text style={styles.userName}>Asanka Madushan</Text>
             <Text style={styles.userId}>USR24001</Text>
           </View>
         </View>

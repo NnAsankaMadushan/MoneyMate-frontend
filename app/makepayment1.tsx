@@ -78,9 +78,9 @@ const Makepayment1 = () => {
         />
       </View>
       </View>
-      <TouchableOpacity style={styles.button} onPress={() => {}}>
+      {/* <TouchableOpacity style={styles.button} onPress={() => {}}>
         <Text style={styles.buttonText}>Submit</Text>
-      </TouchableOpacity>
+      </TouchableOpacity> */}
     </View>
   )
 }

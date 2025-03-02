@@ -13,7 +13,7 @@ const Dashboard = () => {
       <View style={styles.profileContainer}>
         <Image source={require('../components/images/profile.png')} style={styles.profileImage} />
         <Text style={styles.greeting}>Good Morning</Text>
-        <Text style={styles.username}>Kasuni</Text>
+        <Text style={styles.username}>Asanka</Text>
       </View>
       
       <View style={styles.menuContainer}>

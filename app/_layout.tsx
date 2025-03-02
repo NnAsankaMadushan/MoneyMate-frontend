@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, Slot, usePathname } from 'expo-router';
 import { View, Text, StyleSheet, TouchableOpacity, KeyboardAvoidingView, Platform, Keyboard } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import Icon from 'react-native-vector-icons/FontAwesome5';
 
 const RootLayout = () => {
   const pathname = usePathname();
@@ -24,8 +24,9 @@ const RootLayout = () => {
     };
   }, []);
 
-  const getIconColor = (route) => {
-    return pathname === route ? '#11bd64' : '#789687'; // Green for active page, black for others
+  // Fix TypeScript error by adding a type annotation for the route parameter
+  const getIconColor = (route: string): string => {
+    return pathname === route ? '#11bd64' : '#789687'; // Green for active page, gray for others
   };
 
   return (
@@ -39,35 +40,35 @@ const RootLayout = () => {
           <View style={styles.navi}>
             <TouchableOpacity style={styles.navItem}>
               <Link href={'/dashboard'}>
-                <Icon name="home" size={25} color={getIconColor('/dashboard')} style={styles.icons} />
+                <Icon name="home" size={22} solid color={getIconColor('/dashboard')} style={styles.icons} />
               </Link>
               <Text style={[styles.naviText, { color: getIconColor('/dashboard') }]}>Home</Text>
             </TouchableOpacity>
 
             <TouchableOpacity style={styles.navItem}>
               <Link href={'/register'}>
-                <Icon name="user-plus" size={25} color={getIconColor('/register')} style={styles.icons} />
+                <Icon name="user-edit" size={22} solid color={getIconColor('/register')} style={styles.icons} />
               </Link>
               <Text style={[styles.naviText, { color: getIconColor('/register') }]}>Register</Text>
             </TouchableOpacity>
 
             <TouchableOpacity style={styles.navItem}>
               <Link href={'/clients'}>
-                <Icon name="users" size={25} color={getIconColor('/clients')} style={styles.icons} />
+                <Icon name="user-friends" size={22} solid color={getIconColor('/clients')} style={styles.icons} />
               </Link>
               <Text style={[styles.naviText, { color: getIconColor('/clients') }]}>Clients</Text>
             </TouchableOpacity>
 
             <TouchableOpacity style={styles.navItem}>
               <Link href={'/reports'}>
-                <Icon name="file" size={25} color={getIconColor('/reports')} style={styles.icons} />
+                <Icon name="chart-bar" size={22} solid color={getIconColor('/reports')} style={styles.icons} />
               </Link>
               <Text style={[styles.naviText, { color: getIconColor('/reports') }]}>Reports</Text>
             </TouchableOpacity>
 
             <TouchableOpacity style={styles.navItem}>
               <Link href={'/profile'}>
-                <Icon name="user" size={25} color={getIconColor('/profile')} style={styles.icons} />
+                <Icon name="user-circle" size={22} solid color={getIconColor('/profile')} style={styles.icons} />
               </Link>
               <Text style={[styles.naviText, { color: getIconColor('/profile') }]}>Profile</Text>
             </TouchableOpacity>
@@ -86,11 +87,16 @@ const styles = StyleSheet.create({
     position: 'absolute',
     bottom: 0,
     width: '100%',
-    backgroundColor: '#f6f6f6',
-    height: 90,
+    backgroundColor: '#f8f8f8',
+    height: 80,
     borderTopWidth: 1,
-    borderTopColor: '#c9c9c9',
+    borderTopColor: '#e0e0e0',
     padding: 10,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: -2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 3,
+    elevation: 5,
   },
   navi: {
     justifyContent: 'space-around',
@@ -99,14 +105,18 @@ const styles = StyleSheet.create({
     padding: 5,
   },
   naviText: {
-    fontSize: 18,
+    fontSize: 12,
+    marginTop: 5,
+    fontWeight: '500',
   },
   icons: {
-    marginRight: 15,
+    alignSelf: 'center',
   },
   navItem: {
     flexDirection: 'column',
     alignItems: 'center',
+    justifyContent: 'center',
+    width: 60,
   },
 });
 

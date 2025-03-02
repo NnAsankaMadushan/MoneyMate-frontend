@@ -61,7 +61,10 @@ const OtpVerification = () => {
           ]} 
           onPress={handleProceed}
         >
-          <Text style={styles.proceedButtonText}>Proceed</Text>
+          <Link href={"/dashboard"}>
+            <Text style={styles.proceedButtonText}>Proceed</Text>
+          </Link>
+          
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.resendContainer}>

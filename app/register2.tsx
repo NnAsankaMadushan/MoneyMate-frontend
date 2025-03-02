@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { View, TextInput, Button, Image, TouchableOpacity, Text, StyleSheet } from 'react-native';
+import { View, TextInput, Button, Image, TouchableOpacity, Text, StyleSheet, Modal, Alert } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
-import { Link } from 'expo-router';
+import { Link, useRouter } from 'expo-router';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 export default function Register2() {
@@ -11,6 +11,8 @@ export default function Register2() {
   const [frontId, setFrontId] = useState(null);
   const [backId, setBackId] = useState(null);
   const [shopImage, setShopImage] = useState(null);
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
+  const router = useRouter();
 
   const pickImage = async (setImage) => {
     let result = await ImagePicker.launchImageLibraryAsync({
@@ -25,6 +27,18 @@ export default function Register2() {
     }
   };
 
+  const handleRegister = () => {
+    // Here you would normally validate inputs and call your API
+    // For now, we'll just show the success notification
+    setShowSuccessModal(true);
+    
+    // Auto-dismiss and navigate after 2 seconds
+    setTimeout(() => {
+      setShowSuccessModal(false);
+      router.push('/dashboard');
+    }, 2000);
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.headerReg}>
@@ -32,9 +46,9 @@ export default function Register2() {
           <Text style={styles.nextText}>Back</Text>
         </Link>
         <Text style={styles.headerText}>Register</Text>
-        <Link href={'/dashboard'} style={styles.nextText}>
-          <Text>Next</Text>
-        </Link>
+        <TouchableOpacity onPress={handleRegister}>
+          <Text style={styles.nextText}>Next</Text>
+        </TouchableOpacity>
       </View>
       <View style={styles.InputR}>
         <TextInput
@@ -61,15 +75,20 @@ export default function Register2() {
             {frontId ? (
               <Image source={{ uri: frontId }} style={styles.image} />
             ) : (
-              <Text style={styles.uploadText}>Front</Text>
-              // <Icon name="file-upload" size={24} color="#d3d3d3"/>
+              <View style={styles.uploadInner}>
+                <Icon name="file-upload" size={24} color="#d3d3d3"/>
+                <Text style={styles.uploadText}>Front</Text>
+              </View>
             )}
           </TouchableOpacity>
           <TouchableOpacity style={styles.uploadBox} onPress={() => pickImage(setBackId)}>
             {backId ? (
               <Image source={{ uri: backId }} style={styles.image} />
             ) : (
-              <Text style={styles.uploadText}>Back</Text>
+              <View style={styles.uploadInner}>
+                <Icon name="file-upload" size={24} color="#d3d3d3"/>
+                <Text style={styles.uploadText}>Back</Text>
+              </View>
             )}
           </TouchableOpacity>
         </View>
@@ -77,13 +96,28 @@ export default function Register2() {
           {shopImage ? (
             <Image source={{ uri: shopImage }} style={styles.image} />
           ) : (
-            <Text style={styles.uploadText}>Shop image upload</Text>
+            <View style={styles.uploadInner}>
+              <Icon name="storefront" size={28} color="#d3d3d3"/>
+              <Text style={styles.uploadText}>Shop image upload</Text>
+            </View>
           )}
         </TouchableOpacity>
       </View>
-      <TouchableOpacity style={styles.button} onPress={() => {}}>
-        <Text style={styles.buttonText}>Register</Text>
-      </TouchableOpacity>
+
+      {/* Success Modal */}
+      <Modal
+        animationType="fade"
+        transparent={true}
+        visible={showSuccessModal}
+        onRequestClose={() => setShowSuccessModal(false)}
+      >
+        <View style={styles.modalOverlay}>
+          <View style={styles.modalContent}>
+            <Icon name="check-circle" size={60} color="#5cb075" />
+            <Text style={styles.modalText}>User Successfully Created!</Text>
+          </View>
+        </View>
+      </Modal>
     </View>
   );
 }
@@ -120,11 +154,18 @@ const styles = StyleSheet.create({
     backgroundColor: '#f6f6f6',
     borderColor: '#d0d0d0',
     borderWidth: 2,
-    color: '#cdcdcd',
+    overflow: 'hidden',
+  },
+  uploadInner: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '100%',
+    height: '100%',
   },
   uploadText: {
     color: '#d3d3d3',
-    fontSize:18,
+    fontSize: 16,
+    marginTop: 5,
   },
   shopUpload: {
     margin: 2,
@@ -133,11 +174,11 @@ const styles = StyleSheet.create({
     backgroundColor: '#f6f6f6',
     borderColor: '#d0d0d0',
     borderWidth: 2,
-    color: '#cdcdcd',
+    overflow: 'hidden',
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 20,
-    height:100
+    height: 100
   },
   image: {
     width: '100%',
@@ -183,7 +224,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginVertical: 16,
     justifyContent: 'flex-end',
-    
   },
   buttonText: {
     color: '#fff',
@@ -192,5 +232,34 @@ const styles = StyleSheet.create({
   },
   InputR:{
     flex:1
+  },
+  // Modal Styles
+  modalOverlay: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+  },
+  modalContent: {
+    backgroundColor: 'white',
+    borderRadius: 20,
+    padding: 35,
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
+    minWidth: 300,
+  },
+  modalText: {
+    marginTop: 15,
+    textAlign: 'center',
+    fontSize: 20,
+    fontWeight: '600',
+    color: '#333',
   }
 });

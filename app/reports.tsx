@@ -13,15 +13,15 @@ const Reports = () => {
   const [activeTab, setActiveTab] = useState('Daily Reports');
 
   const DailyReports: ReportItem[] = [
-    { id: '1', title: 'Header', description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.', time: '8m ago' },
-    { id: '2', title: 'Header', description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.', time: '8m ago' },
-    { id: '3', title: 'Header', description: 'jhgvgv.', time: '8m ago' },
+    { id: '1', title: 'Electricity Bill Paid', description: 'Payment of $120 for electricity bill processed successfully.', time: '8m ago' },
+    { id: '2', title: 'Water Bill Reminder', description: 'Your water bill of $45 is due in 3 days.', time: '2h ago' },
+    { id: '3', title: 'Internet Bill Paid', description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.', time: '1d ago' },
   ];
   
   const MonthlyReports: ReportItem[] = [
-    { id: '1', title: 'Header', description: 'hiiiiiiiiiiiiiiiiiiiiiiiiiiiii.', time: '8m ago' },
-    { id: '2', title: 'Header', description: 'hiiiiiiiiiiiiiiiiiiiiiiiiiiiii.', time: '8m ago' },
-    { id: '3', title: 'Header', description: 'hiiiiiiiiiiiiiiiiiiiiiiiiiiiii.', time: '8m ago' },
+    { id: '1', title: 'Total Bills Paid', description: 'You paid a total of $450 for utilities this month.', time: '2d ago' },
+    { id: '2', title: 'Upcoming Rent Payment', description: 'Your rent of $1000 is due in 5 days.', time: '3d ago' },
+    { id: '3', title: 'Subscription Renewal', description: 'Your Netflix subscription was renewed successfully.', time: '4d ago' },
   ];
 
   const renderReportItem = ({ item }: { item: ReportItem }) => (
@@ -103,7 +103,7 @@ const styles = StyleSheet.create({
     width: 180,
     height: 180,
     borderRadius: 90,
-    borderColor: '#ffffff',
+    borderColor: '#3a7f3f',
     borderWidth: 6,
     backgroundColor: '#f7f7f7',
   },
